@@ -45,19 +45,19 @@ class _ForgotPasswordStep2State extends State<ForgotPasswordStep2View> {
                   style: TextStyle(fontSize: 13 * width)),),
           ),
           SizedBox(height: 30 * height),
-         Container(child:  Align(alignment: Alignment.centerLeft,child: VerificationCode(
-           textStyle: TextStyle(fontSize: 20.0, color: Colors.red[900]),
-           autofocus: true,
-           keyboardType: TextInputType.number,
-           itemDecoration: borderBackground(backgroundColor, height),
-           length: 4,
-           onCompleted: (String value) {
-           },
-           onEditing: (bool value) {
-             setState(() {
-             });
-           },
-         ),),margin: EdgeInsets.only(left: 10 * width),),
+         // Container(child:  Align(alignment: Alignment.centerLeft,child: VerificationCode(
+         //   textStyle: TextStyle(fontSize: 20.0, color: Colors.red[900]),
+         //   autofocus: true,
+         //   keyboardType: TextInputType.number,
+         //   itemDecoration: borderBackground(backgroundColor, height),
+         //   length: 4,
+         //   onCompleted: (String value) {
+         //   },
+         //   onEditing: (bool value) {
+         //     setState(() {
+         //     });
+         //   },
+         // ),),margin: EdgeInsets.only(left: 10 * width),),
           SizedBox(height: 40 * height),
           GestureDetector(
               child: Container(

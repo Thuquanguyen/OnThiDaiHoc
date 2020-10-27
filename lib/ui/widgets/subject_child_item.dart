@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterappdogandcat/core/inherited/question_inherited.dart';
 import 'package:flutterappdogandcat/core/model/subject.dart';
+import 'package:flutterappdogandcat/ui/views/exam-years/exam_years.dart';
 import 'package:flutterappdogandcat/ui/views/subject/note_view.dart';
 import 'package:flutterappdogandcat/ui/views/subject/remember/remember_list.dart';
 import 'package:flutterappdogandcat/ui/views/subject/remember/remember_view.dart';
@@ -64,6 +65,9 @@ class SubjectChild extends StatelessWidget {
               break;
         case "ghi_chu":
           Navigator.of(context).pushNamed(NoteView.routeName, arguments: slug);
+          break;
+        case "de_thi_thu":
+          Navigator.of(context).pushNamed(ExamYears.routeName,arguments: slug);
           break;
       }
     });

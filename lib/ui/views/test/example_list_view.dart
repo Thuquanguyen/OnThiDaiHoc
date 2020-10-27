@@ -4,6 +4,7 @@ import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 import 'package:flutterappdogandcat/core/model/example.dart';
 import 'package:flutterappdogandcat/core/viewmodel/example_model.dart';
 import 'package:flutterappdogandcat/ui/views/test/example_view.dart';
+import 'package:flutterappdogandcat/ui/widgets/test_item.dart';
 
 class ExampleListView extends StatelessWidget {
   static const routeName = '/example-list';
@@ -40,11 +41,7 @@ class ExampleListView extends StatelessWidget {
               child: ListView.builder(
                   itemBuilder: (context, index) => Container(
                         child: GestureDetector(
-                          child: Card(
-                              child: ListTile(
-                                  title: Text(snapshot.data[index].title),
-                                  subtitle: Text(snapshot.data[index].code),
-                                  leading: Text("Đề ${index + 1}"))),
+                          child: ItemTest(snapshot.data[index]),
                           onTap: () {
                             Navigator.of(context)
                                 .pushNamed(ExampleView.routeName, arguments: {

@@ -25,7 +25,7 @@ class DACApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: ThemeData(),
           initialRoute: SplatView.routeName,
-          onGenerateRoute: Router.generateRoute,
+          onGenerateRoute: Routerr.generateRoute,
           routes: {
             NoteView.routeName: (_) => NoteView(),
             SubjectView.routeName: (_) => SubjectView(),

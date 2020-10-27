@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutterappdogandcat/core/model/entertaiment.dart';
 import 'package:flutterappdogandcat/ui/views/entertainment/details_entertaiment_view.dart';
+import 'package:flutterappdogandcat/ui/views/exam-years/exam_years.dart';
+import 'package:flutterappdogandcat/ui/views/exam-years/list_code_exam.dart';
 import 'package:flutterappdogandcat/ui/views/intro/intro_view.dart';
 import 'package:flutterappdogandcat/ui/views/splat_view.dart';
 import 'package:flutterappdogandcat/ui/views/sign-in/login_view.dart';
@@ -14,7 +16,7 @@ import 'ui/views/forgot-password/forgot_password_step3_view.dart';
 
 const String initialRoute = "login";
 
-class Router {
+class Routerr {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
@@ -35,6 +37,10 @@ class Router {
         return SlideRightRoute(widget: ForgotPasswordStep3View());
       case IntroView.routeName:
         return SlideRightRoute(widget: IntroView());
+      case ListCodeExam.routeName:
+        return SlideRightRoute(widget: ListCodeExam());
+      case ExamYears.routeName:
+        return SlideRightRoute(widget: ExamYears());
       case DetailsEntertaimentView.routerName:
         var entertaiment = settings.arguments as Entertaiment;
         return SlideRightRoute(

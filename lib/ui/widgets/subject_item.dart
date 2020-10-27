@@ -15,7 +15,7 @@ class Subjects extends StatelessWidget {
     final width = MediaQuery.of(context).size.width / 414;
     final height = MediaQuery.of(context).size.height / 813;
     
-    return GestureDetector(child: Container(child: Column(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,children: <Widget>[
+    return GestureDetector(child: Card(child: Container(child: Column(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,children: <Widget>[
       Container(width: 56 * width,height: 56 * width,
         decoration: BoxDecoration(
             shape: BoxShape.circle,
@@ -23,7 +23,7 @@ class Subjects extends StatelessWidget {
         ),),
       SizedBox(height: 5 * height),
       Text(subjectModel.title,style: TextStyle(color: Colors.black))
-    ],),),
+    ],),),),
     onTap: (){
       FocusScope.of(context).requestFocus(FocusNode());
         Navigator.of(context)

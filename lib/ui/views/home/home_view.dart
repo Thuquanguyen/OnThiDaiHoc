@@ -33,7 +33,6 @@ class _HomeViewState extends State<HomeView> {
     final width = MediaQuery.of(context).size.width / 414;
     final height = MediaQuery.of(context).size.height / 813;
 
-    print("Thu : ${weekday}");
     List<Subject> subjecs = <Subject>[
       Subject(
           slug: "toan",

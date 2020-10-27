@@ -36,7 +36,7 @@ dependencies:
   intro_slider: ^2.3.1
   shared_preferences: ^0.5.7
   flutter_webview_plugin: ^0.3.11
-  firebase_admob: ^0.9.0+9
+  firebase_admob: ^0.10.0
   package_info: ^0.4.0+18
   store_redirect: ^1.0.2
 
@@ -76,6 +76,17 @@ flutter:
     - assets/images/img_subject.png
     - assets/images/intro_03.jpg
     - assets/images/img_header.jpg
+    - assets/images/icon_toan.png
+    - assets/images/icon_ly.jpeg
+    - assets/images/icon_van.png
+    - assets/images/icon_tienganh.png
+    - assets/images/icon_sinhhoa.png
+    - assets/images/icon_dialy.jpeg
+    - assets/images/icon_lichsu.jpg
+    - assets/images/icon_hoa.png
+    - assets/images/icon_giaoduccongdan.jpg
+    - assets/images/icon_exam.jpg
+    - assets/images/icon_exam.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

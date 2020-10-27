@@ -22,7 +22,6 @@ class _NoteViewState extends State<NoteView> {
   Widget build(BuildContext context) {
     var date = new DateTime.now();
     var prevMonth = new DateTime(date.year, date.month, date.day);
-    var weekday = date.weekday;
 
     String slug = ModalRoute.of(context).settings.arguments;
     final width = MediaQuery.of(context).size.width / 414;
