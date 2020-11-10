@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutterappdogandcat/core/model/example.dart';
 
 class ItemTest extends StatelessWidget {
@@ -17,7 +18,8 @@ class ItemTest extends StatelessWidget {
         Flexible(child: Column(children: [
           Text("Đề thi thử đại học",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
           SizedBox(height: 5),
-          Text("Đề thi thử đại học THPT Chu Văn An năm 2019-2020",style: TextStyle(color: Colors.black54,fontWeight: FontWeight.normal)),
+          Html(data: example.title),
+          // Text(example.title,style: TextStyle(color: Colors.black54,fontWeight: FontWeight.normal)),
           SizedBox(height: 5),
           Text("Submited",style: TextStyle(color: Colors.lightBlueAccent,fontWeight: FontWeight.bold))
         ],crossAxisAlignment: CrossAxisAlignment.start))

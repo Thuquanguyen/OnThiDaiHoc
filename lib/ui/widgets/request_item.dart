@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tex/flutter_tex.dart';
 import 'package:flutterappdogandcat/core/model/question.dart';
 import 'package:flutterappdogandcat/core/viewmodel/count_model.dart';
 import 'package:flutterappdogandcat/ui/shared/define.dart';
-import 'package:math_tex/math_tex.dart';
+// import 'package:math_tex/math_tex.dart';
 import 'package:provider/provider.dart';
 
 class Requests extends StatefulWidget {
@@ -190,10 +191,9 @@ class _RequestAdapterState extends State<Requests> {
 //  widget.subject.cover_url
   Widget buildText(String text) {
     return SizedBox(
-      child: MathTex(
-          text: text,
-          fontSize: 17
-      ),
+      child: TeXView(child: TeXViewDocument(r"""When \(a \ne 0 \), there are two solutions to \(ax^2 + bx + c = 0\) and they are $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$""",
+          style: TeXViewStyle.fromCSS(
+              'padding: 15px; color: white; background: green')),),
       height: 55,
     );
   }
