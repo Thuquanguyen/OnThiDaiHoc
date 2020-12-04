@@ -48,6 +48,9 @@ class _NavigationBottomBarState extends State<NavigationBottomBar> {
             setState(() => _selectedIndex = index);
           },
           type: BottomNavigationBarType.fixed,
+          backgroundColor: Color.fromRGBO(39, 65, 143, 1),
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white,
           currentIndex: selectedIndex,
           items: _items);
 }

@@ -40,6 +40,7 @@ dependencies:
   package_info: ^0.4.0+18
   store_redirect: ^1.0.2
   flutter_tex: ^3.6.7+10
+  flutter_svg: ^0.19.0
 
 dev_dependencies:
   flutter_test:
@@ -59,16 +60,12 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/bg_background.jpg
     - assets/images/daihoc.jpg
     - assets/images/icon_dag.png
     - assets/images/icon_forgot_pasword.png
     - assets/images/icon_forgot_step2.png
     - assets/images/icon_new_password.png
-    - assets/images/bg_header.png
     - assets/images/bg_header.gif
-    - assets/images/icon_toan.png
-    - assets/images/img_cau1.png
     - assets/images/intro_01.png
     - assets/images/intro_02.png
     - assets/images/intro_03.png
@@ -78,16 +75,21 @@ flutter:
     - assets/images/intro_03.jpg
     - assets/images/img_header.jpg
     - assets/images/icon_toan.png
-    - assets/images/icon_ly.jpeg
-    - assets/images/icon_van.png
-    - assets/images/icon_tienganh.png
-    - assets/images/icon_sinhhoa.png
-    - assets/images/icon_dialy.jpeg
-    - assets/images/icon_lichsu.jpg
-    - assets/images/icon_hoa.png
-    - assets/images/icon_giaoduccongdan.jpg
     - assets/images/icon_exam.jpg
     - assets/images/icon_exam.png
+    - assets/images/home/icon_calendar.png
+    - assets/images/home/icon_dialy.png
+    - assets/images/home/icon_gdcd.png
+    - assets/images/home/icon_hoahoc.png
+    - assets/images/home/icon_lichsu.png
+    - assets/images/home/icon_logo.png
+    - assets/images/home/icon_nguvan.png
+    - assets/images/home/icon_sinhhoc.png
+    - assets/images/home/icon_tienganh.png
+    - assets/images/home/icon_time.png
+    - assets/images/home/icon_toan.png
+    - assets/images/home/icon_toan.svg
+    - assets/images/home/icon_vatly.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

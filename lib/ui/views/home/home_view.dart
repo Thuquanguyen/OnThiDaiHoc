@@ -14,6 +14,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   CheckupdateModel checkupdateModel = CheckupdateModel.instance;
   int dayCount = 0;
+  var date = new DateTime.now();
 
   @override
   void initState() {
@@ -27,56 +28,47 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    var date = new DateTime.now();
     var prevMonth = new DateTime(date.year, date.month, date.day);
     var weekday = date.weekday;
-    final width = MediaQuery.of(context).size.width / 414;
-    final height = MediaQuery.of(context).size.height / 813;
+    final width = MediaQuery.of(context).size.width / 375;
+    final height = MediaQuery.of(context).size.height / 647;
 
     List<Subject> subjecs = <Subject>[
       Subject(
           slug: "toan",
-          image:
-              "https://toppng.com/uploads/preview/calculator-icon-math-icon-11563227565ddgk3sskht.png",
+          image: "assets/images/home/icon_toan.svg",
           title: "Toán"),
       Subject(
           slug: "ly",
-          image:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRvczepklo5y55MxjJitXxP6HmlCnTT6PCnIM3cRkKpemmE_Kpr&usqp=CAU",
+          image: "assets/images/home/icon_vatly.png",
           title: "Vật Lý"),
       Subject(
           slug: "hoa",
-          image:
-              "https://www.kindpng.com/picc/m/154-1546828_transparent-chemistry-icon-png-chemical-effects-of-electric.png",
+          image: "assets/images/home/icon_hoahoc.png",
           title: "Hoá Học"),
       Subject(
           slug: "van",
-          image:
-              "https://pluspng.com/img-png/english-subject-png-clipart-info-521.png",
+          image: "assets/images/home/icon_nguvan.png",
           title: "Ngữ Văn"),
       Subject(
           slug: "tanh",
-          image:
-              "https://cdn0.iconfinder.com/data/icons/online-education-butterscotch-vol-2/512/Language_Learning-512.png",
+          image: "assets/images/home/icon_tienganh.png",
           title: "Tiếng Anh"),
       Subject(
           slug: "sinh",
-          image: "http://getdrawings.com/free-icon/school-subject-icons-61.png",
+          image: "assets/images/home/icon_sinhhoc.png",
           title: "Sinh Học"),
       Subject(
           slug: "su",
-          image:
-              "https://c7.uihere.com/files/845/333/159/computer-icons-history-symbol-subject-clip-art-symbol.jpg",
+          image: "assets/images/home/icon_lichsu.png",
           title: "Lịch Sử"),
       Subject(
           slug: "dia",
-          image:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY27EPIlgxJsiV5LCW0dejzC4h0arwdorW2dFHVxdEey6ZgI63&usqp=CAU",
+          image: "assets/images/home/icon_dialy.png",
           title: "Địa Lý"),
       Subject(
           slug: "giao_duc_cong_dan",
-          image:
-              "https://banner2.cleanpng.com/20180427/xcq/kisspng-sme-subject-matter-expert-computer-icons-5ae3340ed767c7.0268417915248394388823.jpg",
+          image: "assets/images/home/icon_gdcd.png",
           title: "GDCD"),
     ];
 
@@ -86,84 +78,129 @@ class _HomeViewState extends State<HomeView> {
         child: Column(
           children: <Widget>[
             Stack(children: <Widget>[
-              Image.asset("assets/images/bg_header.gif",
-                  fit: BoxFit.cover, width: MediaQuery.of(context).size.width),
+              headerView(height),
               Container(
-                height: 120 * height,
+                height: 70 * height,
                 width: MediaQuery.of(context).size.width,
                 margin: EdgeInsets.only(
-                    left: 24 * width, right: 24 * width, top: 150 * height),
-                child: Center(
-                  child: Card(
-                    child: Row(
-                      children: <Widget>[
-                        Expanded(
-                            child: ListTile(
-                                title: Row(children: <Widget>[
-                                  Icon(Icons.calendar_today,
-                                      color: Colors.red, size: 20),
-                                  SizedBox(width: 5 * width),
-                                  Text("${convertWeek(weekday)}".toUpperCase(),
-                                      style: TextStyle(
-                                          color: Colors.teal,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 14 * width))
-                                ], mainAxisAlignment: MainAxisAlignment.center),
-                                subtitle: Container(
-                                  margin: EdgeInsets.only(top: 5 * height),
-                                  child: Text(
-                                      "${prevMonth.day}/${prevMonth.month}/${prevMonth.year}"
-                                          .toUpperCase(),
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 16 * width,
-                                          fontWeight: FontWeight.bold)),
-                                ))),
-                        Expanded(
-                            child: ListTile(
-                                title: Row(
-                                  children: <Widget>[
-                                    Icon(Icons.av_timer, color: Colors.red),
-                                    SizedBox(width: 5 * width),
-                                    Text("Còn lại".toUpperCase(),
-                                        style: TextStyle(
-                                            color: Colors.teal,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 14 * width))
-                                  ],
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                ),
-                                subtitle: Container(
-                                  margin: EdgeInsets.only(top: 5 * height),
-                                  child: Text("${dayCount} ngày".toUpperCase(),
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 16 * width,
-                                          fontWeight: FontWeight.bold)),
-                                )))
-                      ],
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                    ),
-                    color: Colors.white,
-                    elevation: 0.6,
-                  ),
-                ),
+                    left: 24 * width, right: 24 * width, top: 122 * height),
+                child: calendarView(width, height, convertWeek(weekday),
+                    "${prevMonth.day}/${prevMonth.month}/${prevMonth.year}"),
               ),
             ]),
-            Expanded(
-                child: Container(
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3),
-                itemBuilder: (context, index) =>
-                    Subjects(subjectModel: subjecs[index]),
-                itemCount: subjecs.length,
-              ),
-            ))
+            collectionViewTab(subjecs)
           ],
         ));
   }
+
+  Widget headerView(double height) => Container(
+      padding: EdgeInsets.only(
+          top: 60 * height, left: 25 * height, right: 20 * height),
+      color: Color.fromRGBO(39, 65, 143, 1),
+      height: 162 * height,
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+          children: [
+            Column(children: [
+              Image.asset("assets/images/home/icon_logo.png",
+                  width: 35 * height, height: 37 * height),
+              Text("study 4.0".toUpperCase(),
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold))
+            ]),
+            SizedBox(width: 10 * height),
+            Flexible(
+                child: Column(children: [
+              Text("Ôn thi THPT Quốc Gia Năm 2020 - 2021",
+                  style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 0, 1),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 11)),
+              SizedBox(height: 4 * height),
+              Text("ứng dụng ôn thi đại học".toUpperCase(),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold)),
+              SizedBox(height: 4 * height),
+              Text("Học - Học Nữa - Học Mãi",
+                  style: TextStyle(color: Colors.white, fontSize: 12))
+            ], crossAxisAlignment: CrossAxisAlignment.start))
+          ],
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center));
+
+  Widget calendarView(
+          double width, double height, String weekDay, String dayMonthYear) =>
+      Center(
+        child: Card(
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                  child: ListTile(
+                      title: Row(children: <Widget>[
+                        Icon(Icons.calendar_today_outlined,
+                            color: Colors.red, size: 20),
+                        SizedBox(width: 5 * width),
+                        Text("$weekDay".toUpperCase(),
+                            style: TextStyle(
+                                color: Colors.teal,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14 * width))
+                      ], mainAxisAlignment: MainAxisAlignment.center),
+                      subtitle: Container(
+                        margin: EdgeInsets.only(top: 5 * height),
+                        child: Text("$dayMonthYear".toUpperCase(),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16 * width,
+                                fontWeight: FontWeight.bold)),
+                      ))),
+              SizedBox(
+                  width: 1,
+                  height: 42 * height,
+                  child: Container(color: Color.fromRGBO(241, 241, 241, 1))),
+              Expanded(
+                  child: ListTile(
+                      title: Row(
+                        children: <Widget>[
+                          Icon(Icons.av_timer, color: Colors.red),
+                          SizedBox(width: 5 * width),
+                          Text("Còn lại".toUpperCase(),
+                              style: TextStyle(
+                                  color: Colors.teal,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14 * width))
+                        ],
+                        mainAxisAlignment: MainAxisAlignment.center,
+                      ),
+                      subtitle: Container(
+                        margin: EdgeInsets.only(top: 5 * height),
+                        child: Text("${dayCount} ngày".toUpperCase(),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16 * width,
+                                fontWeight: FontWeight.bold)),
+                      )))
+            ],
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+          ),
+          color: Colors.white,
+          elevation: 2
+        ),
+      );
+
+  Widget collectionViewTab(List<Subject> subject) => Expanded(child: Container(
+    color: Colors.white,
+    child: GridView.builder(
+      gridDelegate:
+      SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),physics: ScrollPhysics(),
+      itemBuilder: (context, index) =>
+          Subjects(subjectModel: subject[index]),
+      itemCount: subject.length,
+    ),
+  ));
 }
