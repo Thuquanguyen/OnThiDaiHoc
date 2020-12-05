@@ -36,7 +36,7 @@ class _HomeViewState extends State<HomeView> {
     List<Subject> subjecs = <Subject>[
       Subject(
           slug: "toan",
-          image: "assets/images/home/icon_toan.svg",
+          image: "assets/images/home/icon_toan.png",
           title: "Toán"),
       Subject(
           slug: "ly",

@@ -21,7 +21,7 @@ class Subjects extends StatelessWidget {
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: Color.fromRGBO(39, 65, 143, 1)
-        ),child: SvgPicture.asset(subjectModel.image,width: 30 * width,height: 30 * height,fit: BoxFit.scaleDown)),
+        ),child: Image(image: AssetImage(subjectModel.image))),
       SizedBox(height: 5 * height),
       Text(subjectModel.title,style: TextStyle(color: Colors.black))
     ],),),
