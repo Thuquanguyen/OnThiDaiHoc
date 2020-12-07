@@ -70,9 +70,9 @@ class SubjectView extends StatelessWidget {
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           childAspectRatio: MediaQuery.of(context).size.width /
-                              (MediaQuery.of(context).size.height / 1.45)),
+                              (MediaQuery.of(context).size.height / 1.4)),
                       itemBuilder: (_, index) =>
-                          SubjectChild(subjectModel: subjecs[index]),
+                          SubjectChild(subjectModel: subjecs[index],index: index,),
                       itemCount: subjecs.length)))),
     );
   }

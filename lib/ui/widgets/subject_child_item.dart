@@ -10,8 +10,9 @@ import 'package:flutterappdogandcat/ui/views/test/example_view.dart';
 
 class SubjectChild extends StatelessWidget {
   final Subject subjectModel;
+  final int index;
 
-  SubjectChild({@required this.subjectModel});
+  SubjectChild({@required this.subjectModel,@required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +27,14 @@ class SubjectChild extends StatelessWidget {
             margin: EdgeInsets.all(8 * width),
             child: Card(
               child: Stack(children: <Widget>[
-                ClipRRect(
+                Align(child: Container(child: ClipRRect(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10 * width),
                     topRight: Radius.circular(10 * width),
                   ),
                   child: Image(image: AssetImage(subjectModel.cover_url)),
-                ),
+                ),margin: EdgeInsets
+                  .only(top: index == 2 ? (15 * height) : 0),),alignment: Alignment.topCenter),
                 Align(
                     alignment: Alignment.bottomCenter,
                     child: Container(
@@ -75,6 +77,10 @@ class SubjectChild extends StatelessWidget {
               Navigator.of(context)
                   .pushNamed(ExampleListView.routeName, arguments: slug);
               break;
+            case "de_thi_thu":
+              Navigator.of(context)
+                  .pushNamed(ExamYears.routeName, arguments: slug);
+              break;
             case "cac_kien_thuc_can_nho":
               Navigator.of(context)
                   .pushNamed(RememberListView.routeName, arguments: slug);
@@ -83,10 +89,7 @@ class SubjectChild extends StatelessWidget {
               Navigator.of(context)
                   .pushNamed(NoteView.routeName, arguments: slug);
               break;
-            case "de_thi_thu":
-              Navigator.of(context)
-                  .pushNamed(ExamYears.routeName, arguments: slug);
-              break;
+
           }
         });
   }

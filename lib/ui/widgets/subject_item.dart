@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutterappdogandcat/core/model/subject.dart';
-import 'package:flutterappdogandcat/ui/shared/define.dart';
 import 'package:flutterappdogandcat/ui/views/subject/subject_view.dart';
 
 class Subjects extends StatelessWidget {

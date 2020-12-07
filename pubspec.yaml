@@ -40,7 +40,7 @@ dependencies:
   package_info:
   store_redirect:
   flutter_tex:
-  flutter_svg:
+  percent_indicator:
 
 dev_dependencies:
   flutter_test:

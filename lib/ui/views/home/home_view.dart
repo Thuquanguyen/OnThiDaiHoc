@@ -139,7 +139,7 @@ class _HomeViewState extends State<HomeView> {
               Expanded(
                   child: ListTile(
                       title: Row(children: <Widget>[
-                        Icon(Icons.calendar_today_outlined,
+                        Icon(Icons.calendar_today,
                             color: Colors.red, size: 20),
                         SizedBox(width: 5 * width),
                         Text("$weekDay".toUpperCase(),

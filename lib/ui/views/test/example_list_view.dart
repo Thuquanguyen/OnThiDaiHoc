@@ -19,11 +19,13 @@ class ExampleListView extends StatelessWidget {
     String slug = ModalRoute.of(context).settings.arguments;
     model.getListExample(slug);
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Danh mục đề thi"),
-        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Text("Danh mục đề thi",style: TextStyle(color: Colors.black)),
         leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
+            icon: Icon(Icons.arrow_back_ios,color: Colors.black,),
             onPressed: () {
               Navigator.pop(context);
             }),
@@ -57,35 +59,4 @@ class ExampleListView extends StatelessWidget {
       ),
     );
   }
-
-  Widget char() =>
-      AnimatedCircularChart(
-        key: _chartKey,
-        size: Size.fromRadius(30),
-        initialChartData: <CircularStackEntry>[
-          new CircularStackEntry(
-            <CircularSegmentEntry>[
-              new CircularSegmentEntry(
-                33.33,
-                Colors.blue,
-                rankKey: 'completed',
-              ),
-              new CircularSegmentEntry(
-                66.67,
-                Colors.grey,
-                rankKey: 'remaining',
-              ),
-            ],
-            rankKey: 'progress',
-          ),
-        ],
-        chartType: CircularChartType.Radial,
-        percentageValues: true,
-        holeLabel: '20%',
-        labelStyle: new TextStyle(
-          color: Colors.blueGrey[600],
-          fontWeight: FontWeight.bold,
-          fontSize: 15.0,
-        ),
-      );
 }
