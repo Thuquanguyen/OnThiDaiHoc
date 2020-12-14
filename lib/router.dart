@@ -8,6 +8,7 @@ import 'package:flutterappdogandcat/ui/views/intro/intro_view.dart';
 import 'package:flutterappdogandcat/ui/views/splat_view.dart';
 import 'package:flutterappdogandcat/ui/views/sign-in/login_view.dart';
 import 'package:flutterappdogandcat/ui/views/sign-up/register_view.dart';
+import 'package:flutterappdogandcat/ui/views/start-exam/start_exam_widget.dart';
 import 'package:flutterappdogandcat/ui/views/subject/remember/remember_list.dart';
 import 'ui/views/navigation_bottom.dart';
 import 'ui/views/forgot-password/forgot_password_step1_view.dart';

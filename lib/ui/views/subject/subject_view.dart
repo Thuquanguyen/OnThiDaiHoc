@@ -40,10 +40,8 @@ class SubjectView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width / 414;
-    Subject subjectModel = ModalRoute
-        .of(context)
-        .settings
-        .arguments;
+    Subject subjectModel = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(

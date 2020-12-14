@@ -22,23 +22,14 @@ class _RequestAdapterState extends State<Requests> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery
-        .of(context)
-        .size
-        .width / 414;
-    final height = MediaQuery
-        .of(context)
-        .size
-        .height / 813;
+    final width = MediaQuery.of(context).size.width / 360;
+    final height = MediaQuery.of(context).size.height / 628;
     final provider = Provider.of<CountModel>(context);
 
     return Container(
         padding: EdgeInsets.only(left: 10, right: 10, top: 20),
         color: Colors.white,
-        width: MediaQuery
-            .of(context)
-            .size
-            .width,
+        width: MediaQuery.of(context).size.width,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -113,10 +104,6 @@ class _RequestAdapterState extends State<Requests> {
     String result = widget.subject[index].description;
     return Wrap(
       children: <Widget>[
-        Text(
-          "Câu số : ${index + 1}/${widget.lenght}",
-          style: TextStyle(fontSize: 18, color: Colors.pinkAccent),
-        ),
         SizedBox(
             width: MediaQuery.of(context).size.width, child: buildText(result)),
         Center(child: widget.subject[index].imageUrlQuestion.length != 0

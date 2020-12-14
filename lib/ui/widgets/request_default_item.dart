@@ -21,32 +21,21 @@ class _RequestDefaultAdapterState extends State<RequestDefaultAdapter> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery
-        .of(context)
-        .size
-        .width / 414;
-    final height = MediaQuery
-        .of(context)
-        .size
-        .height / 813;
+    final width = MediaQuery.of(context).size.width / 360;
+    final height = MediaQuery.of(context).size.height / 628;
     final provider = Provider.of<CountModel>(context);
 
     return Container(
         padding: EdgeInsets.only(left: 10, right: 10, top: 20),
         color: Colors.white,
-        width: MediaQuery
-            .of(context)
-            .size
-            .width,
+        width: MediaQuery.of(context).size.width,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              request(provider.count - 1, provider.isCheck),
+              request(provider.count - 1, provider.isCheck,width),
               SizedBox(height: 20 * height),
-              Divider(height: 2, color: Colors.tealAccent),
-              SizedBox(height: 10 * height),
               _myRadioButton(
                   title: widget.subject[provider.count - 1].answer[0],
                   value: "A",
@@ -109,43 +98,22 @@ class _RequestDefaultAdapterState extends State<RequestDefaultAdapter> {
         ));
   }
 
-  Widget request(int index, bool isCheck) {
+  Widget request(int index, bool isCheck, double width) {
     String result = widget.subject[index].description;
-    return Column(
-      children: <Widget>[
-        Row(children: [
-          Text(
-            "Câu số : ${index + 1}/${widget.lenght}",
-            style: TextStyle(fontSize: 18, color: Colors.pinkAccent),
-          ),
-        ],),
-        SizedBox(height: 10),
-        SizedBox(
-            width: MediaQuery
-                .of(context)
-                .size
-                .width, child: Html(data: result))
-      ],
-      crossAxisAlignment: CrossAxisAlignment.start,
-    );
+    return Card(child: Padding(child: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: Html(data: result,defaultTextStyle: TextStyle(fontWeight: FontWeight.w600,inherit: true),)),padding: EdgeInsets.all(7 * width),),color: colorFromHex("#F1F2F1"),elevation: 0);
   }
 
-  Widget _myRadioButton({String title,
-    String value,
-    double width,
-    double height,
-    int index,
-    int indexQuestion}) {
+  Widget _myRadioButton({String title, String value, double width, double height, int index, int indexQuestion}) {
     return GestureDetector(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
-                child: Center(
-                    child: Text(
-                      value,
-                      style: TextStyle(
+                child: Center(child: Text(value,
+                  style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 20 * width),
                     )),
                 decoration: BoxDecoration(

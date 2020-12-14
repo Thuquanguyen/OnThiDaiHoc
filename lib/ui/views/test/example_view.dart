@@ -5,6 +5,7 @@ import 'package:flutterappdogandcat/core/model/question.dart';
 import 'package:flutterappdogandcat/core/viewmodel/count_model.dart';
 import 'package:flutterappdogandcat/core/viewmodel/question_model.dart';
 import 'package:flutterappdogandcat/ui/shared/alert.dart';
+import 'package:flutterappdogandcat/ui/shared/argument_pass.dart';
 import 'package:flutterappdogandcat/ui/shared/define.dart';
 import 'package:flutterappdogandcat/ui/widgets/request_default_item.dart';
 import 'package:flutterappdogandcat/ui/widgets/request_default_vanhoc_item.dart';
@@ -49,28 +50,27 @@ class _TestScreenState extends State<ExampleView>
 
   _showDialog() async {
     await Future.delayed(Duration(milliseconds: 50));
-    showAlert(context, () {
-      Navigator.pop(context);
-      _controller.forward(from: 0.0);
-    }, "Bắt đầu làm bài thi", "Bắt đầu");
+    _controller.forward(from: 0.0);
   }
 
   @override
   Widget build(BuildContext context) {
-    dynamic data = ModalRoute.of(context).settings.arguments;
-    _subjectViewModel.getListSubject(data['slug'], data['id']).then((value) {
-      if (value.length != 0 && data['slug'] != "van") {
+    PassArgumentsScreen data = ModalRoute.of(context).settings.arguments;
+    _subjectViewModel.getListSubject(data.slug, data.content.id).then((value) {
+      if (value.length != 0 && data.slug != "van") {
         _showDialog();
       }
     });
-    final time = data['slug'] == "toan"
-        ? 90
-        : (data['slug'] == "van" ? 120 : (data['slug'] == "tanh" ? 60 : 50));
+
+    final time = data.slug == "toan" ? 90 : (data.slug == "van" ? 120 : (data.slug == "tanh" ? 60 : 50));
     _controller = new AnimationController(
       vsync: this,
       duration: Duration(minutes: time),
     );
-    final width = MediaQuery.of(context).size.width / 414;
+
+    final width = MediaQuery.of(context).size.width / 360;
+    final height = MediaQuery.of(context).size.height / 628;
+
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => CountModel()),
@@ -81,8 +81,8 @@ class _TestScreenState extends State<ExampleView>
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Container(
                   child: Scaffold(
-                    body: Center(child: CupertinoActivityIndicator()),
-                  ));
+                body: Center(child: CupertinoActivityIndicator()),
+              ));
             } else if (snapshot.error != null) {
               return Scaffold(
                   body: Container(child: Center(child: Text("error"))));
@@ -103,42 +103,25 @@ class _TestScreenState extends State<ExampleView>
                 check++;
               }
             });
+
             return Scaffold(
               appBar: AppBar(
-                backgroundColor: Colors.white,
+                backgroundColor: Color.fromARGB(102, 187, 106, 1),
                 elevation: 0,
+                titleSpacing: -10 * width,
                 leading: IconButton(
-                  icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+                  icon: Icon(Icons.arrow_back_ios, color: Colors.white,size: 20 * width,),
                   onPressed: () {
                     _controller.forward(from: 0.0);
                     Navigator.of(context).pop();
                   },
                 ),
-                title: Text("Đề thi", style: TextStyle(color: Colors.red)),
-                centerTitle: true,
+                title: Text(data.content.title, style: TextStyle(color: Colors.white,fontSize: 15 * width,fontWeight: FontWeight.w600)),
                 actions: <Widget>[
-                  (data['slug'] == "van" || snapshot.data.length == 0) ? Text(
-                      "") : GestureDetector(
-                    child: Container(
-                      child: Center(
-                          child: Text("Nộp bài",
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 17))),
-                      margin: EdgeInsets.only(right: 20 * width),
-                    ),
-                    onTap: () {
-                      int count = 0;
-                      for (int i = 0; i < snapshot.data.length; i++) {
-                        if (convertInCorrect(snapshot.data[i].index) ==
-                            snapshot.data[i].correctAnswer) {
-                          count++;
-                        }
-                      }
-                      showAlertSubmit(context, count, snapshot.data.length);
-                      Provider.of<CountModel>(context).complate();
-                      _controller.stop();
-                    },
-                  )
+                  (data.slug == "van" || snapshot.data.length == 0)
+                      ? Text("")
+                      : Container(child: Center(child: Text("10:30", style: TextStyle(color: Colors.lightBlue, fontWeight: FontWeight.w600))),
+                      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white), padding: EdgeInsets.all(5 * height),margin: EdgeInsets.only(right: 5),)
                 ],
               ),
               body: SafeArea(
@@ -147,27 +130,26 @@ class _TestScreenState extends State<ExampleView>
                       child: Column(
                         children: <Widget>[
                           Expanded(
-                              child: (data['slug'] == "toan" ||
-                                  data['slug'] == "ly" || data['slug'] == "hoa")
+                              child: (data.slug == "toan" || data.slug == "ly" || data.slug == "hoa")
                                   ? Requests(
-                                  subject: snapshot.data,
-                                  lenght: snapshot.data.length)
+                                      subject: snapshot.data,
+                                      lenght: snapshot.data.length)
                                   : (snapshot.data.length == 0
-                                  ? Center(
-                                child: Text("Chưa có dữ liệu"),
-                              )
-                                  : (data['slug'] == "van"
-                                  ? RequestDefaultVanHocItem(
-                                  subject: snapshot.data,
-                                  lenght: snapshot.data.length)
-                                  : RequestDefaultAdapter(
-                                subject: snapshot.data,
-                                lenght: snapshot.data.length,
-                              )))),
+                                      ? Center(
+                                          child: Text("Chưa có dữ liệu"),
+                                        )
+                                      : (data.slug == "van"
+                                          ? RequestDefaultVanHocItem(
+                                              subject: snapshot.data,
+                                              lenght: snapshot.data.length)
+                                          : RequestDefaultAdapter(
+                                              subject: snapshot.data,
+                                              lenght: snapshot.data.length,
+                                            )))),
                           Align(
                               alignment: Alignment.bottomCenter,
                               child:
-                              footerWidget(context, snapshot.data.length))
+                                  footerWidget(context, snapshot.data.length))
                         ],
                       ))),
             );
@@ -198,9 +180,9 @@ class _TestScreenState extends State<ExampleView>
                 SizedBox(width: 10),
                 PomodoroTimer(
                     timeRemainingInSeconds: new IntTween(
-                      begin: _controller.duration.inSeconds,
-                      end: 0,
-                    ).animate(_controller))
+                  begin: _controller.duration.inSeconds,
+                  end: 0,
+                ).animate(_controller))
               ],
             ),
             Expanded(
@@ -209,14 +191,12 @@ class _TestScreenState extends State<ExampleView>
               child: IconButton(
                   icon: Icon(Icons.arrow_forward_ios),
                   onPressed: () {
-                    if (Provider
-                        .of<CountModel>(context, listen: false)
-                        .count <= lenght - 1) {
+                    if (Provider.of<CountModel>(context, listen: false).count <=
+                        lenght - 1) {
                       Provider.of<CountModel>(context, listen: false)
                           .increment();
-                      print('Count : ${Provider
-                          .of<CountModel>(context, listen: false)
-                          .count}');
+                      print(
+                          'Count : ${Provider.of<CountModel>(context, listen: false).count}');
                     }
                   }),
             )),

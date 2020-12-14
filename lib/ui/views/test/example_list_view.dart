@@ -43,7 +43,7 @@ class ExampleListView extends StatelessWidget {
               child: ListView.builder(
                   itemBuilder: (context, index) => Container(
                         child: GestureDetector(
-                          child: ItemTest(snapshot.data[index]),
+                          child: ItemTest(snapshot.data[index],slug),
                           onTap: () {
                             Navigator.of(context)
                                 .pushNamed(ExampleView.routeName, arguments: {
