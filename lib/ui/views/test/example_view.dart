@@ -106,7 +106,7 @@ class _TestScreenState extends State<ExampleView>
 
             return Scaffold(
               appBar: AppBar(
-                backgroundColor: Color.fromARGB(102, 187, 106, 1),
+                backgroundColor: colorFromHex("#66BB6A"),
                 elevation: 0,
                 titleSpacing: -10 * width,
                 leading: IconButton(
@@ -120,11 +120,14 @@ class _TestScreenState extends State<ExampleView>
                 actions: <Widget>[
                   (data.slug == "van" || snapshot.data.length == 0)
                       ? Text("")
-                      : Container(child: Center(child: Text("10:30", style: TextStyle(color: Colors.lightBlue, fontWeight: FontWeight.w600))),
-                      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white), padding: EdgeInsets.all(5 * height),margin: EdgeInsets.only(right: 5),)
+                      : Container(child: Card(color: colorFromHex("#E8F2FD"),child: Center(child: Padding(child: PomodoroTimer(
+                      timeRemainingInSeconds: new IntTween(
+                        begin: _controller.duration.inSeconds,
+                        end: 0,
+                      ).animate(_controller)),padding: EdgeInsets.all(5)))),margin: EdgeInsets.only(top: 7 * height,bottom: 7 * height),)
                 ],
               ),
-              body: SafeArea(
+              body: Builder(builder: (context) => SafeArea(
                   child: Container(
                       color: Colors.white,
                       child: Column(
@@ -132,75 +135,88 @@ class _TestScreenState extends State<ExampleView>
                           Expanded(
                               child: (data.slug == "toan" || data.slug == "ly" || data.slug == "hoa")
                                   ? Requests(
-                                      subject: snapshot.data,
-                                      lenght: snapshot.data.length)
+                                  subject: snapshot.data,
+                                  lenght: snapshot.data.length)
                                   : (snapshot.data.length == 0
-                                      ? Center(
-                                          child: Text("Chưa có dữ liệu"),
-                                        )
-                                      : (data.slug == "van"
-                                          ? RequestDefaultVanHocItem(
-                                              subject: snapshot.data,
-                                              lenght: snapshot.data.length)
-                                          : RequestDefaultAdapter(
-                                              subject: snapshot.data,
-                                              lenght: snapshot.data.length,
-                                            )))),
+                                  ? Center(
+                                child: Text("Chưa có dữ liệu"),
+                              )
+                                  : (data.slug == "van"
+                                  ? RequestDefaultVanHocItem(
+                                  subject: snapshot.data,
+                                  lenght: snapshot.data.length)
+                                  : RequestDefaultAdapter(
+                                subject: snapshot.data,
+                                lenght: snapshot.data.length,
+                              )))),
                           Align(
                               alignment: Alignment.bottomCenter,
                               child:
-                                  footerWidget(context, snapshot.data.length))
+                              footerWidget(context, snapshot.data.length,height))
                         ],
-                      ))),
+                      )))),
             );
           },
         ));
   }
 
-  Widget footerWidget(BuildContext context, int lenght) => Container(
-        color: Colors.white,
-        child: Row(
+  Widget footerWidget(BuildContext context, int lenght,double height) => Container(
+        color: colorFromHex("#85C687"),
+        height: 40 * height,
+        child: GestureDetector(child: Row(
           children: <Widget>[
             Expanded(
                 child: Align(
-              alignment: Alignment.centerLeft,
-              child: IconButton(
-                  icon: Icon(Icons.arrow_back_ios),
-                  onPressed: () {
-                    if (Provider.of<CountModel>(context, listen: false).count >
-                        0) {
-                      Provider.of<CountModel>(context, listen: false)
-                          .unIncrement();
-                    }
-                  }),
-            )),
-            Row(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                      icon: Icon(Icons.arrow_back_ios, color: Colors.white,size: 20 * height),
+                      onPressed: () {
+                        // if (Provider.of<CountModel>(context, listen: false).count >
+                        //     0) {
+                        //   Provider.of<CountModel>(context, listen: false)
+                        //       .unIncrement();
+                        // }
+                      }),
+                )),
+            Column(
               children: <Widget>[
-                Icon(Icons.av_timer),
-                SizedBox(width: 10),
-                PomodoroTimer(
-                    timeRemainingInSeconds: new IntTween(
-                  begin: _controller.duration.inSeconds,
-                  end: 0,
-                ).animate(_controller))
+                Icon(Icons.arrow_drop_up, color: Colors.white),
+                Text("Câu 5/40", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14 * height),)
               ],
             ),
             Expanded(
                 child: Align(
-              alignment: Alignment.centerRight,
-              child: IconButton(
-                  icon: Icon(Icons.arrow_forward_ios),
-                  onPressed: () {
-                    if (Provider.of<CountModel>(context, listen: false).count <=
-                        lenght - 1) {
-                      Provider.of<CountModel>(context, listen: false)
-                          .increment();
-                      print(
-                          'Count : ${Provider.of<CountModel>(context, listen: false).count}');
-                    }
-                  }),
-            )),
+                  alignment: Alignment.centerRight,
+                  child: IconButton(
+                      icon: Icon(Icons.arrow_forward_ios,color: Colors.white,size: 20 * height),
+                      onPressed: () {
+                        // if (Provider.of<CountModel>(context, listen: false).count <=
+                        //     lenght - 1) {
+                        //   Provider.of<CountModel>(context, listen: false)
+                        //       .increment();
+                        //   print(
+                        //       'Count : ${Provider.of<CountModel>(context, listen: false).count}');
+                        // }
+                      }),
+                )),
           ],
-        ),
+        ),onTap: (){
+          Scaffold.of(context).showSnackBar(snackBar);
+        },),
       );
+
+  final snackBar =  SnackBar(content: GridView.count(
+    // Create a grid with 2 columns. If you change the scrollDirection to
+    // horizontal, this produces 2 rows.
+    crossAxisCount: 4,
+    // Generate 100 widgets that display their index in the List.
+    children: List.generate(40, (index) {
+      return Center(
+        child: Text(
+          'Item $index'),
+      );
+    }),
+  ),action: SnackBarAction(label: "Undo", onPressed: (){
+
+  }));
 }

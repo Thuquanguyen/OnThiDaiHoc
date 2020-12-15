@@ -141,10 +141,7 @@ class _RequestAdapterState extends State<Requests> {
             Expanded(
                 child: GestureDetector(
                   child: SizedBox(
-                      width: MediaQuery
-                          .of(context)
-                          .size
-                          .width,
+                      width: MediaQuery.of(context).size.width,
                       child: Stack(
                         children: <Widget>[
                           buildText(title),

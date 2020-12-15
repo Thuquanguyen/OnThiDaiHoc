@@ -26,7 +26,7 @@ class StartExamWidget extends StatelessWidget {
         SizedBox(height: 5 * height),
         Text("(Đề thi không có đáp án)", style: TextStyle(fontSize: 16 * width, color: Colors.black45),textAlign: TextAlign.center),
         SizedBox(height: 30 * height),
-        Icon(Icons.book_outlined, size: 50 * width,color: Color.fromARGB(102, 187, 106, 1)),
+        Icon(Icons.library_books, size: 50 * width,color: Color.fromARGB(102, 187, 106, 1)),
         SizedBox(height: 30 * height),
         Row(children: [
           Flexible(child: Column(children: [
