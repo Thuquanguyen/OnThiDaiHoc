@@ -34,7 +34,7 @@ class _RequestDefaultAdapterState extends State<RequestDefaultAdapter> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              request(provider.count - 1, provider.isCheck,width),
+              request(provider.count - 1, provider.isCheck, width),
               SizedBox(height: 20 * height),
               _myRadioButton(
                   title: widget.subject[provider.count - 1].answer[0],
@@ -44,8 +44,6 @@ class _RequestDefaultAdapterState extends State<RequestDefaultAdapter> {
                   index: 0,
                   indexQuestion: provider.count - 1),
               SizedBox(height: 10 * height),
-              Divider(height: 2, color: Colors.tealAccent),
-              SizedBox(height: 10 * height),
               _myRadioButton(
                   title: widget.subject[provider.count - 1].answer[1],
                   value: "B",
@@ -54,8 +52,6 @@ class _RequestDefaultAdapterState extends State<RequestDefaultAdapter> {
                   index: 1,
                   indexQuestion: provider.count - 1),
               SizedBox(height: 10 * height),
-              Divider(height: 2, color: Colors.tealAccent),
-              SizedBox(height: 10 * height),
               _myRadioButton(
                   title: widget.subject[provider.count - 1].answer[2],
                   value: "C",
@@ -63,8 +59,6 @@ class _RequestDefaultAdapterState extends State<RequestDefaultAdapter> {
                   height: height,
                   index: 2,
                   indexQuestion: provider.count - 1),
-              SizedBox(height: 10 * height),
-              Divider(height: 2, color: Colors.tealAccent),
               SizedBox(height: 10 * height),
               _myRadioButton(
                   title: widget.subject[provider.count - 1].answer[3],
@@ -100,63 +94,56 @@ class _RequestDefaultAdapterState extends State<RequestDefaultAdapter> {
 
   Widget request(int index, bool isCheck, double width) {
     String result = widget.subject[index].description;
-    return Card(child: Padding(child: SizedBox(
-        width: MediaQuery.of(context).size.width,
-        child: Html(data: result,defaultTextStyle: TextStyle(fontWeight: FontWeight.w600,inherit: true),)),padding: EdgeInsets.all(7 * width),),color: colorFromHex("#F1F2F1"),elevation: 0);
+    return Card(
+        child: Padding(
+          child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Html(
+                data: result,
+                defaultTextStyle: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    inherit: true,
+                    fontFamily: "RobotoSlab", color: colorFromHex("#000409")),
+              )),
+          padding: EdgeInsets.all(7 * width),
+        ),
+        color: colorFromHex("#F1F2F1"),
+        elevation: 0);
   }
 
   Widget _myRadioButton({String title, String value, double width, double height, int index, int indexQuestion}) {
     return GestureDetector(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Container(
-                child: Center(child: Text(value,
-                  style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20 * width),
-                    )),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: Provider
-                    .of<CountModel>(context)
-                    .isCheck ? (index ==
-                    convertCorrect(widget.subject[indexQuestion].correctAnswer))
-                    ? Colors.green
-                    : Colors.tealAccent : Colors.tealAccent) ,
-                width: 50 * width,
-                height: 50 * height),
-            SizedBox(width: 20 * width),
-            Expanded(
-                child: GestureDetector(
-                  child: Container(
-                    child: SizedBox(
-                        width: MediaQuery
-                            .of(context)
-                            .size
-                            .width,
-                        child: Stack(
-                          children: <Widget>[
-                            Center(
-                              child: Html(data: title),
-                            )
-                          ],
-                        )),
-                    color: Colors.white,
-                  ),
-                  onTap: () {
-                    setState(() {
-                      for (int i = 0; i < _list.length; i++) {
-                        _list[i] = false;
-                      }
-                      _list[index] = true;
-                      widget.subject[indexQuestion].index = index;
-                    });
-                  },
-                )),
-            (index == widget.subject[indexQuestion].index)
-                ? Icon(Icons.check_circle, color: Colors.green)
-                : Text("")
-          ],
+        child: Card(
+          color: (index == widget.subject[indexQuestion].index) ? colorFromHex("#E8F2FD") : Colors.white,
+          child: Padding(
+            child: Row(
+              children: <Widget>[
+                Container(
+                    child: Text(
+                      value,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20 * width,
+                          color: colorFromHex("#4581B8"),
+                          fontFamily: "Sriracha"),
+                    ),
+                    margin: EdgeInsets.only(left: 10 * width)),
+                SizedBox(width: 10 * width),
+                Expanded(
+                    child: Align(
+                  child: Html(
+                    data: title,
+                    defaultTextStyle: TextStyle(fontFamily: "RobotoSlab", color: colorFromHex("#000409")),
+                  ),alignment: Alignment.topLeft,
+                ))
+              ],
+            ),
+            padding: EdgeInsets.all(5),
+          ),
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+              side: BorderSide(color: colorFromHex("#E8F2FD"), width: 1),
+              borderRadius: BorderRadius.circular(10)),
         ),
         onTap: () {
           setState(() {
