@@ -187,7 +187,7 @@ class _TestScreenState extends State<ExampleView>
                                           snapshot.data.length, height))
                                 ],
                               ),
-                              snackBar(
+                              snackBar(snapshot.data,
                                   width,
                                   height,
                                   Provider.of<SnackBarModel>(context)
@@ -214,11 +214,11 @@ class _TestScreenState extends State<ExampleView>
                     icon: Icon(Icons.arrow_back_ios,
                         color: Colors.white, size: 20 * height),
                     onPressed: () {
-                      // if (Provider.of<CountModel>(context, listen: false).count >
-                      //     0) {
-                      //   Provider.of<CountModel>(context, listen: false)
-                      //       .unIncrement();
-                      // }
+                      if (Provider.of<CountModel>(context, listen: false).count >
+                          0) {
+                        Provider.of<CountModel>(context, listen: false)
+                            .unIncrement();
+                      }
                     }),
               )),
               Column(
@@ -240,13 +240,13 @@ class _TestScreenState extends State<ExampleView>
                     icon: Icon(Icons.arrow_forward_ios,
                         color: Colors.white, size: 20 * height),
                     onPressed: () {
-                      // if (Provider.of<CountModel>(context, listen: false).count <=
-                      //     lenght - 1) {
-                      //   Provider.of<CountModel>(context, listen: false)
-                      //       .increment();
-                      //   print(
-                      //       'Count : ${Provider.of<CountModel>(context, listen: false).count}');
-                      // }
+                      if (Provider.of<CountModel>(context, listen: false).count <=
+                          lenght - 1) {
+                        Provider.of<CountModel>(context, listen: false)
+                            .increment();
+                        print(
+                            'Count : ${Provider.of<CountModel>(context, listen: false).count}');
+                      }
                     }),
               )),
             ],
@@ -258,7 +258,7 @@ class _TestScreenState extends State<ExampleView>
       );
 
   Widget snackBar(
-          double width, double height, bool isShow, BuildContext context) =>
+          List<Question> data,double width, double height, bool isShow, BuildContext context) =>
       SnackBarInherited(
           showSnack: false,
           child: Visibility(
@@ -304,7 +304,7 @@ class _TestScreenState extends State<ExampleView>
                                       },
                                     );
                                   },
-                                  itemCount: 40))
+                                  itemCount: data.length))
                         ],
                       ))),
               visible: isShow));
