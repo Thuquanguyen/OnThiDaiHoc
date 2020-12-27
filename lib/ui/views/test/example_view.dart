@@ -14,6 +14,8 @@ import 'package:flutterappdogandcat/ui/widgets/request_default_vanhoc_item.dart'
 import 'package:flutterappdogandcat/ui/widgets/request_item.dart';
 import 'package:provider/provider.dart';
 
+import 'items/item_result.dart';
+
 class PomodoroTimer extends AnimatedWidget {
   PomodoroTimer({this.timeRemainingInSeconds})
       : super(listenable: timeRemainingInSeconds);
@@ -277,12 +279,32 @@ class _TestScreenState extends State<ExampleView>
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          GestureDetector(child: Icon(Icons.arrow_drop_down,
-                              color: Colors.black),onTap: (){
-                            Provider.of<SnackBarModel>(context)
-                                .hintSnackBar();
-                          }),
-                          Text("25/40 câu", style: TextStyle(fontFamily: "Roboto", fontWeight: FontWeight.bold),)
+                          GestureDetector(
+                              child: Icon(Icons.arrow_drop_down,
+                                  color: Colors.white),
+                              onTap: () {
+                                Provider.of<SnackBarModel>(context)
+                                    .hintSnackBar();
+                              }),
+                          Text("25/40 câu",
+                              style: TextStyle(
+                                  fontFamily: "Roboto",
+                                  fontWeight: FontWeight.bold)),
+                          SizedBox(height: 10 * height),
+                          Flexible(
+                              child: GridView.builder(
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 4),
+                                  itemBuilder: (context, index) {
+                                    return GestureDetector(
+                                      child: ItemResult(index: index),
+                                      onTap: () {
+                                        Provider.of<SnackBarModel>(context).hintSnackBar();
+                                      },
+                                    );
+                                  },
+                                  itemCount: 40))
                         ],
                       ))),
               visible: isShow));
