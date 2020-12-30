@@ -69,9 +69,7 @@ class _TestScreenState extends State<ExampleView>
       }
     });
 
-    final time = data.slug == "toan"
-        ? 90
-        : (data.slug == "van" ? 120 : (data.slug == "tanh" ? 60 : 50));
+    final time = data.slug == "toan"? 90 : (data.slug == "van" ? 120 : (data.slug == "tanh" ? 60 : 50));
     _controller = new AnimationController(
       vsync: this,
       duration: Duration(minutes: time),
@@ -117,8 +115,7 @@ class _TestScreenState extends State<ExampleView>
                 elevation: 0,
                 titleSpacing: -10 * width,
                 leading: IconButton(
-                  icon: Icon(
-                    Icons.arrow_back_ios,
+                  icon: Icon(Icons.arrow_back_ios,
                     color: Colors.white,
                     size: 20 * width,
                   ),
@@ -224,13 +221,13 @@ class _TestScreenState extends State<ExampleView>
               Column(
                 children: <Widget>[
                   Icon(Icons.arrow_drop_up, color: Colors.white),
-                  Text(
-                    "Câu 5/40",
+                  Flexible(child: Text(
+                    "Câu ${Provider.of<CountModel>(context).count}/$lenght",
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 14 * height),
-                  )
+                  ))
                 ],
               ),
               Expanded(
@@ -298,13 +295,27 @@ class _TestScreenState extends State<ExampleView>
                                           crossAxisCount: 4),
                                   itemBuilder: (context, index) {
                                     return GestureDetector(
-                                      child: ItemResult(index: index),
+                                      child: ItemResult(index: index,data: data),
                                       onTap: () {
                                         Provider.of<SnackBarModel>(context).hintSnackBar();
+                                        Provider.of<CountModel>(context, listen: false)
+                                            .filterQuestion(index + 1);
                                       },
                                     );
                                   },
-                                  itemCount: data.length))
+                                  itemCount: data.length)),
+                          Center(child: RaisedButton(onPressed: (){
+                            int count = 0;
+                            for (int i = 0; i < data.length; i++) {
+                              if (convertInCorrect(data[i].index) ==
+                                  data[i].correctAnswer) {
+                                count++;
+                              }
+                            }
+                            showAlertSubmit(context, count, data.length);
+                            Provider.of<CountModel>(context).complate();
+                            _controller.stop();
+                          },child: Text("Nộp bài"),),)
                         ],
                       ))),
               visible: isShow));

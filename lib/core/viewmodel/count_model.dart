@@ -27,4 +27,9 @@ class CountModel extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  void filterQuestion(int index){
+    _count = index;
+    notifyListeners();
+  }
 }
