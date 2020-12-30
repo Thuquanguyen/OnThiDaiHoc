@@ -15,7 +15,7 @@ class SubjectView extends StatelessWidget {
             "assets/images/detail/bg_thithu.png",
         title: "Đề thi thử"),
     Subject(
-        slug: "de_thi_thu",
+        slug: "de_cac_nam",
         image:
             "assets/images/detail/icon_dethicacnam.png",
         cover_url:

@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutterappdogandcat/core/bloc/bloc_base.dart';
-import 'package:flutterappdogandcat/core/model/entertaiment.dart';
 import 'package:flutterappdogandcat/core/model/info_app.dart';
 import 'package:flutterappdogandcat/core/service/api.dart';
 
