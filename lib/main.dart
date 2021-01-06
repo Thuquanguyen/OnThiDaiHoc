@@ -4,7 +4,8 @@ import 'package:flutterappdogandcat/ui/views/admod/admod_view.dart';
 import 'package:flutterappdogandcat/ui/views/favorite/tuyensinh_view.dart';
 import 'package:flutterappdogandcat/ui/views/splat_view.dart';
 import 'package:flutterappdogandcat/ui/views/start-exam/start_exam_widget.dart';
-import 'package:flutterappdogandcat/ui/views/subject/remember/remember_list.dart';
+import 'package:flutterappdogandcat/ui/views/subject/remember/web_example_view.dart';
+import 'package:flutterappdogandcat/ui/views/subject/remember/theory_view.dart';
 import 'package:flutterappdogandcat/ui/views/test/example_list_view.dart';
 import 'core/bloc/bloc_provider.dart';
 import 'core/viewmodel/question_model.dart';
@@ -35,7 +36,8 @@ class DACApp extends StatelessWidget {
             RememberView.routeName: (_) => RememberView(),
             CreateTaskView.routeName: (_) => CreateTaskView(),
             ExampleListView.routeName: (_) => ExampleListView(),
-            RememberListView.routeName: (_) => RememberListView(),
+            TheoryView.routeName: (_) => TheoryView(),
+            WebExampleView.routeName: (_) => WebExampleView(),
             TuyenSinhView.routeName: (_) => TuyenSinhView(),
             AdmodView.routeName: (_) => AdmodView(),
           },

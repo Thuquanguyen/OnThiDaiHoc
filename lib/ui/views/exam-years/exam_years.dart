@@ -14,6 +14,7 @@ class _ExamYearsState extends State<ExamYears> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width / 360;
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -26,7 +27,7 @@ class _ExamYearsState extends State<ExamYears> {
         body: Container(
           child: PageView.builder(
             itemBuilder: (context, index) {
-              return itemPage(index);
+              return itemPage(index,width);
             },
             itemCount: 4,
             scrollDirection: Axis.horizontal,
@@ -36,68 +37,72 @@ class _ExamYearsState extends State<ExamYears> {
         ));
   }
 
-  Widget itemPage(var index) => Container(
+  Widget itemPage(var index,double width) => Container(
 
         child: GestureDetector(
           child: Stack(
             children: [
               Container(
                 child: Card(
-                  child: Container(
-                      child: Column(
-                        children: [
-                          Text(
-                              "Đề thi môn Toán tốt nghiệp THPT ${2016 + index + 1}",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18),
-                              textAlign: TextAlign.center),
-                          SizedBox(height: 10),
-                          Column(
-                            children: [
-                              Text("Thời gian làm bài: 90 phút",
-                                  style: TextStyle(
-                                      color: Colors.black45,
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 18),
-                                  textAlign: TextAlign.center),
-                              SizedBox(height: 10),
-                              Text("Đã hoàn thành: 10/20 Mã đề",
-                                  style: TextStyle(
-                                      color: Colors.black45,
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 18),
-                                  textAlign: TextAlign.center),
-                            ],
-                          ),
-                          SizedBox(height: 40),
-                          Container(
-                              child: GestureDetector(
-                                child: Text("Làm bài",
+                  child: Stack(children: [
+                    Image(image: AssetImage("assets/images/detail/bg_paper.png"),fit: BoxFit.cover,width: 400 * width,),
+                    Container(
+                        child: Column(
+                          children: [
+                            Text(
+                                "Đề thi môn Toán tốt nghiệp THPT ${2016 + index + 1}",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18),
+                                textAlign: TextAlign.center),
+                            SizedBox(height: 10),
+                            Column(
+                              children: [
+                                Text("Thời gian làm bài: 90 phút",
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 18)),
-                                onTap: () {
-                                  Navigator.of(context).pushNamed(ListCodeExam.routeName);
-                                },
-                              ),
-                              decoration: BoxDecoration(
-                                  color: Colors.lightBlueAccent,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5))),
-                              padding: EdgeInsets.only(
-                                  top: 5, bottom: 5, left: 10, right: 10))
-                        ],
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      ),
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.only(
-                          top: 50, left: 10, right: 10, bottom: 20)),
+                                        color: Colors.black45,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 18),
+                                    textAlign: TextAlign.center),
+                                SizedBox(height: 10),
+                                Text("Đã hoàn thành: 10/20 Mã đề",
+                                    style: TextStyle(
+                                        color: Colors.black45,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 18),
+                                    textAlign: TextAlign.center),
+                              ],
+                            ),
+                            SizedBox(height: 40),
+                            Container(
+                                child: GestureDetector(
+                                  child: Text("Làm bài",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 18)),
+                                  onTap: () {
+                                    Navigator.of(context).pushNamed(ListCodeExam.routeName);
+                                  },
+                                ),
+                                decoration: BoxDecoration(
+                                    color: Colors.lightBlueAccent,
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(5))),
+                                padding: EdgeInsets.only(
+                                    top: 5, bottom: 5, left: 10, right: 10))
+                          ],
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        ),
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.only(
+                            top: 50, left: 10, right: 10, bottom: 20))
+                  ],),
                   elevation: 5,
                 ),
                 margin: EdgeInsets.only(top: 16),
               ),
+
               Container(
                 child: Text("${2016 + index + 1}",
                     style: TextStyle(

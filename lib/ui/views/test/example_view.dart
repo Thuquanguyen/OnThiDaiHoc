@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterappdogandcat/core/inherited/SnackBarInherited.dart';
 import 'package:flutterappdogandcat/core/model/question.dart';
 import 'package:flutterappdogandcat/core/viewmodel/count_model.dart';
+import 'package:flutterappdogandcat/core/viewmodel/end_time_model.dart';
 import 'package:flutterappdogandcat/core/viewmodel/question_model.dart';
 import 'package:flutterappdogandcat/core/viewmodel/snackBar_model.dart';
 import 'package:flutterappdogandcat/ui/shared/alert.dart';
@@ -78,7 +79,7 @@ class _TestScreenState extends State<ExampleView>
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => CountModel()),
-          ChangeNotifierProvider(create: (_) => SnackBarModel())
+          ChangeNotifierProvider(create: (_) => SnackBarModel()),
         ],
         child: StreamBuilder<List<Question>>(
           stream: _subjectViewModel.subjectStream,

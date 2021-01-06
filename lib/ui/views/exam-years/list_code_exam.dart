@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterappdogandcat/ui/shared/define.dart';
+import 'package:flutterappdogandcat/ui/views/exam-years/items/item_example.dart';
 
 class ListCodeExam extends StatefulWidget {
   static const String routeName = '/lits_code_exam';
@@ -10,58 +12,61 @@ class ListCodeExam extends StatefulWidget {
 class _ListCodeExamState extends State<ListCodeExam> {
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width / 360;
+    final height = MediaQuery.of(context).size.height / 640;
+
     return Scaffold(
+      backgroundColor: colorFromHex("63B9F5"),
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: colorFromHex("63B9F5"),
         leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
+            icon: Icon(Icons.arrow_back_ios, size: 15 * height),
             onPressed: () {
               Navigator.of(context).pop();
             }),
-        title: Text("Danh sách mã đề"),
+        actions: [
+          Padding(padding: EdgeInsets.all(15 * width),child: GestureDetector(
+            child: Text(
+              "Tải về",
+              style: TextStyle(color: Colors.white),
+            ),
+            onTap: () {
+              print("donwload ");
+            },
+          ),)
+        ],
       ),
-      body: Container(
-          margin: EdgeInsets.all(5),
-          child: ListView.builder(
-              itemBuilder: (context, data) {
-                return Card(
-                  child: Container(
-                    child: Column(
-                      children: [
-                        Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 30,
-                            child: Center(
-                                child: Text("Mã đề 365",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold)))),
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          child: Column(
-                            children: [
-                              ListTile(
-                                  title:
-                                      Text("Đề thi môn Toán tốt nghiệp THPT"),
-                                  subtitle:
-                                      Text("Thời gian làm bài : 90 phút")),
-                              Container(
-                                child: Text(
-                                  "Submitted",
-                                  style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.right,
-                                ),
-                                width: MediaQuery.of(context).size.width,
-                                margin: EdgeInsets.only(right: 10),
-                              ),
-                              SizedBox(height: 5)
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                );
-              },
-              itemCount: 10)),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: EdgeInsets.only(
+                left: 15 * width,
+                right: 15 * width,
+                top: 10 * height,
+                bottom: 35 * height),
+            child: Text(
+              "Đề thi môn Toán tốt nghiệp THPT năm 2020 \nTổng cộng 15 mã đề",
+              style: TextStyle(color: Colors.white, fontSize: 13 * width),
+            ),
+          ),
+          Expanded(
+              child: Container(
+                  // margin: EdgeInsets.only(),
+                  padding: EdgeInsets.only(top: 35 * height,left: 15 * width, right: 15 * width),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20 * width),
+                          topRight: Radius.circular(20 * width))),
+                  child: ListView.builder(
+                      itemBuilder: (context, data) {
+                        return ItemExample();
+                      },
+                      itemCount: 10)))
+        ],
+      ),
     );
   }
 }

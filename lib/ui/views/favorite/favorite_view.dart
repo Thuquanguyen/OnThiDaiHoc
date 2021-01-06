@@ -2,8 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterappdogandcat/core/model/entertaiment.dart';
 import 'package:flutterappdogandcat/core/viewmodel/tuyensinh_model.dart';
+import 'package:flutterappdogandcat/ui/shared/define.dart';
 import 'package:flutterappdogandcat/ui/views/favorite/tuyensinh_view.dart';
 import 'package:flutterappdogandcat/ui/views/subject/remember/remember_view.dart';
+
+import 'items/item_admissions.dart';
 
 class FavoriteView extends StatefulWidget {
   static const routeName = "/favorite";
@@ -54,16 +57,25 @@ class _FavoriteViewState extends State<FavoriteView> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width / 360;
+    final height = MediaQuery.of(context).size.height / 640;
+
     return SafeArea(
         child: Scaffold(
+          appBar: AppBar(
+            title: Text("Tra cứu tuyển sinh",style: TextStyle(color: Colors.black, fontWeight: FontWeight.w800),),
+            centerTitle: true,
+            elevation: 0,
+            backgroundColor: Colors.white,
+          ),
             body: StreamBuilder<List<Entertaiment>>(
                 stream: model.entertaimentStream,
                 builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CupertinoActivityIndicator());
-                  } else if (snapshot.error != null) {
-                    return Center(child: Text("Error"));
-                  }
+                  // if (snapshot.connectionState == ConnectionState.waiting) {
+                  //   return Center(child: CupertinoActivityIndicator());
+                  // } else if (snapshot.error != null) {
+                  //   return Center(child: Text("Error"));
+                  // }
                   return Column(
                     children: [
                       Container(
@@ -79,7 +91,8 @@ class _FavoriteViewState extends State<FavoriteView> {
                                         hintText: "Đại học Bách Khoa Hà Nội",
                                         border: InputBorder.none,
                                         suffixIcon: IconButton(
-                                            icon: Icon(Icons.cancel),
+                                            icon: Icon(Icons.cancel,
+                                                color: Colors.black26),
                                             onPressed: () {
                                               controller.text = "";
                                             })),
@@ -87,38 +100,49 @@ class _FavoriteViewState extends State<FavoriteView> {
                                   leading: Icon(Icons.search)),
                             ),
                             decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
+                                borderRadius: BorderRadius.all(
+                                    Radius.circular(10 * width)),
+                                border: Border.all(
+                                  color: colorFromHex("9B9B9B"),
+                                ),
                                 color: Colors.white),
-                            height: 40,
                           ),
-                          height: 80,
-                          color: Colors.blue,
+                          height: 60 * height,
+                          color: Colors.white,
                           padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 10)),
-                      SizedBox(height: 20),
+                              vertical: 10 * width, horizontal: 10 * height)),
+                      SizedBox(height: 5 * height),
                       Expanded(
                           child: ListView.builder(
                         shrinkWrap: true,
                         itemBuilder: (context, index) => Container(
                             margin: EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 5),
-                            child: GestureDetector(
-                              child: Card(
-                                  child: ListTile(
-                                leading: Icon(Icons.library_books),
-                                title: Text(snapshot.data[index].title,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis),
-                              )),
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, TuyenSinhView.routeName,
-                                    arguments: snapshot.data[index]);
-                              },
-                            )),
-                        itemCount: snapshot.data.length,
+                                vertical: 5 * width, horizontal: 5 * width),
+                            child: ItemAdmission()),
+                        itemCount: 20,
                       ))
+                      // Expanded(
+                      //     child: ListView.builder(
+                      //   shrinkWrap: true,
+                      //   itemBuilder: (context, index) => Container(
+                      //       margin: EdgeInsets.symmetric(
+                      //           vertical: 5, horizontal: 5),
+                      //       child: GestureDetector(
+                      //         child: Card(
+                      //             child: ListTile(
+                      //           leading: Icon(Icons.library_books),
+                      //           title: Text(snapshot.data[index].title,
+                      //               maxLines: 2,
+                      //               overflow: TextOverflow.ellipsis),
+                      //         )),
+                      //         onTap: () {
+                      //           Navigator.pushNamed(
+                      //               context, TuyenSinhView.routeName,
+                      //               arguments: snapshot.data[index]);
+                      //         },
+                      //       )),
+                      //   itemCount: snapshot.data.length,
+                      // ))
                     ],
                   );
                 })));

@@ -3,8 +3,9 @@ import 'package:flutterappdogandcat/core/inherited/question_inherited.dart';
 import 'package:flutterappdogandcat/core/model/subject.dart';
 import 'package:flutterappdogandcat/ui/views/exam-years/exam_years.dart';
 import 'package:flutterappdogandcat/ui/views/subject/note_view.dart';
-import 'package:flutterappdogandcat/ui/views/subject/remember/remember_list.dart';
+import 'package:flutterappdogandcat/ui/views/subject/remember/web_example_view.dart';
 import 'package:flutterappdogandcat/ui/views/subject/remember/remember_view.dart';
+import 'package:flutterappdogandcat/ui/views/subject/remember/theory_view.dart';
 import 'package:flutterappdogandcat/ui/views/test/example_list_view.dart';
 import 'package:flutterappdogandcat/ui/views/test/example_view.dart';
 
@@ -83,7 +84,7 @@ class SubjectChild extends StatelessWidget {
               break;
             case "cac_kien_thuc_can_nho":
               Navigator.of(context)
-                  .pushNamed(RememberListView.routeName, arguments: slug);
+                  .pushNamed(TheoryView.routeName, arguments: slug);
               break;
             case "ghi_chu":
               Navigator.of(context)

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:flutterappdogandcat/core/viewmodel/remember_model.dart';
+import 'package:flutterappdogandcat/ui/shared/argument_pass.dart';
 
 const kAndroidUserAgent =
     'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Mobile Safari/537.36';
@@ -14,18 +15,17 @@ final Set<JavascriptChannel> jsChannels = [
         print(message.message);
       }),
 ].toSet();
-String selectedUrl = 'https://studen-graduation.herokuapp.com/exam/5f75698a921b8e0017268c93';
+String selectedUrl = '';
 
-class RememberListView extends StatefulWidget {
+class WebExampleView extends StatefulWidget {
   static const routeName = "/remember-list";
 
   @override
-  _RememberListViewState createState() => _RememberListViewState();
+  _WebExampleViewState createState() => _WebExampleViewState();
 }
 
-class _RememberListViewState extends State<RememberListView> {
+class _WebExampleViewState extends State<WebExampleView> {
   RememberModel model = RememberModel.instance;
-
 
   @override
   void initState() {
@@ -38,20 +38,22 @@ class _RememberListViewState extends State<RememberListView> {
 
   @override
   Widget build(BuildContext context) {
+    PassArgumentsScreen example = ModalRoute.of(context).settings.arguments;
+    selectedUrl = 'https://studen-graduation.herokuapp.com/exam/${example.content.id}';
+
     return WebviewScaffold(
       url: selectedUrl,
       javascriptChannels: jsChannels,
       mediaPlaybackRequiresUserGesture: false,
       appBar: AppBar(
-        title: const Text('Widget WebView'),
+        title: Text(example.content.title),
       ),
       withZoom: true,
       withLocalStorage: true,
       hidden: true,
       initialChild: Container(
-        color: Colors.redAccent,
         child: const Center(
-          child: Text('Waiting.....'),
+          child: Text('Đang tải dữ liệu đề thi.....'),
         ),
       ),
     );
