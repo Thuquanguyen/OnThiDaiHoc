@@ -3,7 +3,7 @@ import 'package:flutterappdogandcat/router.dart';
 import 'package:flutterappdogandcat/ui/views/admod/admod_view.dart';
 import 'package:flutterappdogandcat/ui/views/exam-years/exam_years.dart';
 import 'package:flutterappdogandcat/ui/views/exam-years/list_code_exam.dart';
-import 'package:flutterappdogandcat/ui/views/favorite/tuyensinh_view.dart';
+import 'package:flutterappdogandcat/ui/views/favorite/tuyensinh_ads.dart';
 import 'package:flutterappdogandcat/ui/views/splat_view.dart';
 import 'package:flutterappdogandcat/ui/views/start-exam/start_exam_widget.dart';
 import 'package:flutterappdogandcat/ui/views/subject/remember/web_example_view.dart';
@@ -42,7 +42,7 @@ class DACApp extends StatelessWidget {
             ExamYears.routeName: (_) => ExamYears(),
             WebExampleView.routeName: (_) => WebExampleView(),
             ListCodeExam.routeName : (_) => ListCodeExam(),
-            TuyenSinhView.routeName: (_) => TuyenSinhView(),
+            TuyenSinhAds.routeName: (_) => TuyenSinhAds(),
             AdmodView.routeName: (_) => AdmodView(),
           },
         ),

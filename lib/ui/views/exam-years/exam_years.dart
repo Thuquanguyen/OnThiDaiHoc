@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterappdogandcat/core/model/example.dart';
 import 'package:flutterappdogandcat/core/viewmodel/example_model.dart';
 import 'package:flutterappdogandcat/ui/shared/argument_pass.dart';
+import 'package:flutterappdogandcat/ui/shared/define.dart';
 import 'package:flutterappdogandcat/ui/views/exam-years/list_code_exam.dart';
 
 class ExamYears extends StatefulWidget {
@@ -24,6 +25,7 @@ class _ExamYearsState extends State<ExamYears> {
     String slug = ModalRoute.of(context).settings.arguments;
     model.getListExample(slug);
     final width = MediaQuery.of(context).size.width / 360;
+    final height = MediaQuery.of(context).size.height / 640;
 
     return Scaffold(
         appBar: AppBar(
@@ -45,7 +47,7 @@ class _ExamYearsState extends State<ExamYears> {
               return  Container(
                 child: PageView.builder(
                   itemBuilder: (context, index) {
-                    return itemPage(index,width,slug,snapshot.data);
+                    return itemPage(index,width,height,slug,snapshot.data);
                   },
                   itemCount: 4,
                   scrollDirection: Axis.horizontal,
@@ -59,7 +61,7 @@ class _ExamYearsState extends State<ExamYears> {
   }
 
   // ignore: non_constant_identifier_names
-  Widget itemPage(var index,double width,String slug,List<Example> data) => Container(
+  Widget itemPage(var index,double width,double height,String slug,List<Example> data) => Container(
 
         child: GestureDetector(
           child: Stack(
@@ -67,30 +69,53 @@ class _ExamYearsState extends State<ExamYears> {
               Container(
                 child: Card(
                   child: Stack(children: [
-                    Image(image: AssetImage("assets/images/detail/bg_paper.png"),fit: BoxFit.cover,width: 400 * width,),
+                    Image(image: AssetImage("assets/images/detail/bg_paper.png"),fit: BoxFit.cover,width: 500 * width,height: 640 * height,),
                     Container(
                         child: Column(
                           children: [
-                            Text(
-                                "Đề thi môn Toán tốt nghiệp THPT ${2016 + index + 1}",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18),
-                                textAlign: TextAlign.center),
+                            Column(children: [
+                              Text("KỲ THI TỐT NGHIỆP TRUNG HỌC PHỔ THÔNG NĂM 2020",
+                                  style: TextStyle(
+                                      fontFamily: "Sriracha",
+                                      color: Colors.black54,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                  textAlign: TextAlign.center),
+                              Text("Bài thi: KHOA HỌC TỰ NHIÊN",
+                                  style: TextStyle(
+                                      fontFamily: "Sriracha",
+                                      color: Colors.black54,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                  textAlign: TextAlign.center),
+                              Text("Môn thi thành phần: ${getNameSlug(slug)}",
+                                  style: TextStyle(
+                                      fontFamily: "Sriracha",
+                                      color: Colors.black54,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                  textAlign: TextAlign.center)
+                            ],),
                             SizedBox(height: 10),
                             Column(
                               children: [
                                 Text("Thời gian làm bài: 90 phút",
                                     style: TextStyle(
-                                        color: Colors.black45,
+                                        color: Colors.black54,
                                         fontWeight: FontWeight.normal,
                                         fontSize: 18),
                                     textAlign: TextAlign.center),
                                 SizedBox(height: 10),
-                                Text("Đã hoàn thành: 10/20 Mã đề",
+                                Text("(không kể thời gian phát đề)",
                                     style: TextStyle(
-                                        color: Colors.black45,
+                                        color: Colors.black54,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 15),
+                                    textAlign: TextAlign.center),
+                                SizedBox(height: 10),
+                                Text("Đã hoàn thành: 0/${data.length} Mã đề",
+                                    style: TextStyle(
+                                        color: Colors.black54,
                                         fontWeight: FontWeight.normal,
                                         fontSize: 18),
                                     textAlign: TextAlign.center),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterappdogandcat/core/model/example.dart';
 import 'package:flutterappdogandcat/ui/shared/argument_pass.dart';
 import 'package:flutterappdogandcat/ui/shared/define.dart';
+import 'package:flutterappdogandcat/ui/views/subject/remember/web_example_view.dart';
 import 'package:flutterappdogandcat/ui/views/test/example_view.dart';
 
 class ItemExample extends StatelessWidget {
@@ -39,7 +40,12 @@ class ItemExample extends StatelessWidget {
       ),
     ),onTap: (){
       Navigator.of(context)
-          .pushNamed(ExampleView.routeName, arguments: PassArgumentsScreen(slug,example));
+          .pushNamed((slug == TOAN ||
+          slug == VAT_LY ||
+          slug == HOA_HOC ||
+          slug == SINH_HOC)
+          ? WebExampleView.routeName
+          : ExampleView.routeName, arguments: PassArgumentsScreen(slug,example));
     },);
   }
 }

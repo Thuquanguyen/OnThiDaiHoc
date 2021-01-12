@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterappdogandcat/core/model/entertaiment.dart';
 import 'package:flutterappdogandcat/core/viewmodel/tuyensinh_model.dart';
 import 'package:flutterappdogandcat/ui/shared/define.dart';
-import 'package:flutterappdogandcat/ui/views/favorite/tuyensinh_view.dart';
+import 'package:flutterappdogandcat/ui/views/favorite/tuyensinh_ads.dart';
 import 'package:flutterappdogandcat/ui/views/subject/remember/remember_view.dart';
 
 import 'items/item_admissions.dart';

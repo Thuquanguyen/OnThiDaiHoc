@@ -18,7 +18,6 @@ class ItemResult extends StatelessWidget {
       child: Card(
         child: Column(
           children: [
-
             Icon(Provider.of<CountModel>(context).isCheck ? (convertInCorrect(data[index].index) ==
                 data[index].correctAnswer ? Icons.check_circle : Icons.cancel) : Icons.cancel,
                 color: Provider.of<CountModel>(context).isCheck ? (convertInCorrect(data[index].index) !=

@@ -21,12 +21,12 @@ String getNameSlug(String slug){
   switch (slug){
     case "toan": return "Toán"; break;
     case "ly": return "Vật Lý";break;
-    case "hoa": return "Hoá học";break;
+    case "hoa": return "Hoá Học";break;
     case "van": return "Ngữ Văn";break;
     case "tanh": return "Tiếng Anh";break;
-    case "sinh": return "Sinh học";break;
+    case "sinh": return "Sinh Học";break;
     case "su": return "Lịch Sử";break;
-    case "dia": return "Địa lý";break;
+    case "dia": return "Địa Lý";break;
     default: return "Không xác định";
   }
 }

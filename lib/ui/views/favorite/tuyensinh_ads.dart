@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:flutterappdogandcat/core/model/entertaiment.dart';
 
-class TuyenSinhView extends StatefulWidget {
+class TuyenSinhAds extends StatefulWidget {
   static const routeName = '/tuyen_sinh';
 
   @override
-  _TuyenSinhViewState createState() => _TuyenSinhViewState();
+  _TuyenSinhAdsState createState() => _TuyenSinhAdsState();
 }
 
-class _TuyenSinhViewState extends State<TuyenSinhView> {
+class _TuyenSinhAdsState extends State<TuyenSinhAds> {
   BannerAd myBanner;
 
   BannerAd buildBannerAd() {

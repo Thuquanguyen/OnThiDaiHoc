@@ -50,7 +50,7 @@ class _ListCodeExamState extends State<ListCodeExam> {
                 top: 10 * height,
                 bottom: 35 * height),
             child: Text(
-              "Đề thi môn Toán tốt nghiệp THPT năm 2020 \nTổng cộng 15 mã đề",
+              "Đề thi môn ${getNameSlug(arguments.slug)} tốt nghiệp THPT năm 2020 \nTổng cộng ${arguments.content.length} mã đề",
               style: TextStyle(color: Colors.white, fontSize: 13 * width),
             ),
           ),
