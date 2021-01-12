@@ -79,6 +79,7 @@ class SubjectChild extends StatelessWidget {
                   .pushNamed(ExampleListView.routeName, arguments: slug);
               break;
             case "de_cac_nam":
+              print("slug : $slug");
               Navigator.of(context)
                   .pushNamed(ExamYears.routeName, arguments: slug);
               break;

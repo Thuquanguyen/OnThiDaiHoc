@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterappdogandcat/ui/shared/argument_pass.dart';
 import 'package:flutterappdogandcat/ui/shared/define.dart';
 import 'package:flutterappdogandcat/ui/views/exam-years/items/item_example.dart';
 
@@ -12,8 +13,10 @@ class ListCodeExam extends StatefulWidget {
 class _ListCodeExamState extends State<ListCodeExam> {
   @override
   Widget build(BuildContext context) {
+
     final width = MediaQuery.of(context).size.width / 360;
     final height = MediaQuery.of(context).size.height / 640;
+    PassArgumentsScreen arguments = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
       backgroundColor: colorFromHex("63B9F5"),
@@ -61,10 +64,10 @@ class _ListCodeExamState extends State<ListCodeExam> {
                           topLeft: Radius.circular(20 * width),
                           topRight: Radius.circular(20 * width))),
                   child: ListView.builder(
-                      itemBuilder: (context, data) {
-                        return ItemExample();
+                      itemBuilder: (context, index) {
+                        return ItemExample(example: arguments.content[index],slug: arguments.slug);
                       },
-                      itemCount: 10)))
+                      itemCount: arguments.content.length)))
         ],
       ),
     );

@@ -33,7 +33,12 @@ class StartExamWidget extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 18 * width, fontWeight: FontWeight.w800),
                 textAlign: TextAlign.center),
-            SizedBox(height: 15 * height),
+            SizedBox(height: 5 * height),
+            Text("Môn thi: ${getNameSlug(example.slug)}",
+                style: TextStyle(
+                    fontSize: 18 * width, fontWeight: FontWeight.w600),
+                textAlign: TextAlign.center),
+            SizedBox(height: 5 * height),
             Text("Mã đề ${example.content.code}",
                 style: TextStyle(
                     fontSize: 18 * width, fontWeight: FontWeight.w600),

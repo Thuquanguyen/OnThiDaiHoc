@@ -17,6 +17,20 @@ String getSlug(String slug) {
   return BASE_URL;
 }
 
+String getNameSlug(String slug){
+  switch (slug){
+    case "toan": return "Toán"; break;
+    case "ly": return "Vật Lý";break;
+    case "hoa": return "Hoá học";break;
+    case "van": return "Ngữ Văn";break;
+    case "tanh": return "Tiếng Anh";break;
+    case "sinh": return "Sinh học";break;
+    case "su": return "Lịch Sử";break;
+    case "dia": return "Địa lý";break;
+    default: return "Không xác định";
+  }
+}
+
 int convertCorrect(String correct) {
   switch (correct) {
     case 'a':

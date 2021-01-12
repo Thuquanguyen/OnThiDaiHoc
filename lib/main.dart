@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterappdogandcat/router.dart';
 import 'package:flutterappdogandcat/ui/views/admod/admod_view.dart';
+import 'package:flutterappdogandcat/ui/views/exam-years/exam_years.dart';
+import 'package:flutterappdogandcat/ui/views/exam-years/list_code_exam.dart';
 import 'package:flutterappdogandcat/ui/views/favorite/tuyensinh_view.dart';
 import 'package:flutterappdogandcat/ui/views/splat_view.dart';
 import 'package:flutterappdogandcat/ui/views/start-exam/start_exam_widget.dart';
@@ -37,7 +39,9 @@ class DACApp extends StatelessWidget {
             CreateTaskView.routeName: (_) => CreateTaskView(),
             ExampleListView.routeName: (_) => ExampleListView(),
             TheoryView.routeName: (_) => TheoryView(),
+            ExamYears.routeName: (_) => ExamYears(),
             WebExampleView.routeName: (_) => WebExampleView(),
+            ListCodeExam.routeName : (_) => ListCodeExam(),
             TuyenSinhView.routeName: (_) => TuyenSinhView(),
             AdmodView.routeName: (_) => AdmodView(),
           },

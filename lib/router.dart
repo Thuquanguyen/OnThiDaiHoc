@@ -38,10 +38,6 @@ class Routerr {
         return SlideRightRoute(widget: ForgotPasswordStep3View());
       case IntroView.routeName:
         return SlideRightRoute(widget: IntroView());
-      case ListCodeExam.routeName:
-        return SlideRightRoute(widget: ListCodeExam());
-      case ExamYears.routeName:
-        return SlideRightRoute(widget: ExamYears());
       case DetailsEntertaimentView.routerName:
         var entertaiment = settings.arguments as Entertaiment;
         return SlideRightRoute(

@@ -18,6 +18,7 @@ class RequestDefaultAdapter extends StatefulWidget {
 
 class _RequestDefaultAdapterState extends State<RequestDefaultAdapter> {
   List<bool> _list = [false, false, false, false];
+  List<String> _results =["A","B","C","D"];
 
   @override
   Widget build(BuildContext context) {
@@ -36,37 +37,32 @@ class _RequestDefaultAdapterState extends State<RequestDefaultAdapter> {
             children: <Widget>[
               request(provider.count - 1, provider.isCheck, width),
               SizedBox(height: 20 * height),
-              _myRadioButton(
-                  title: widget.subject[provider.count - 1].answer[0],
-                  value: "A",
-                  width: width,
-                  height: height,
-                  index: 0,
-                  indexQuestion: provider.count - 1),
-              SizedBox(height: 10 * height),
-              _myRadioButton(
-                  title: widget.subject[provider.count - 1].answer[1],
-                  value: "B",
-                  width: width,
-                  height: height,
-                  index: 1,
-                  indexQuestion: provider.count - 1),
-              SizedBox(height: 10 * height),
-              _myRadioButton(
-                  title: widget.subject[provider.count - 1].answer[2],
-                  value: "C",
-                  width: width,
-                  height: height,
-                  index: 2,
-                  indexQuestion: provider.count - 1),
-              SizedBox(height: 10 * height),
-              _myRadioButton(
-                  title: widget.subject[provider.count - 1].answer[3],
-                  value: "D",
-                  width: width,
-                  height: height,
-                  index: 3,
-                  indexQuestion: provider.count - 1),
+              ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) => Container(
+                    child: GestureDetector(
+                      child: _myRadioButton(
+                          title: widget.subject[provider.count - 1].answer[index],
+                          value: _results[index],
+                          width: width,
+                          height: height,
+                          index: index,
+                          indexQuestion: provider.count - 1),
+                      onTap: () {
+                        if (!Provider.of<CountModel>(context).isCheck){
+                          setState(() {
+                            for (int i = 0; i < _list.length; i++) {
+                              _list[i] = false;
+                            }
+                            _list[index] = true;
+                            widget.subject[provider.count - 1].index = index;
+                          });
+                        }
+                      },
+                    ),
+                  ),
+                  itemCount: 4),
               Visibility(
                 visible: provider.isCheck,
                 child: Column(
@@ -83,7 +79,9 @@ class _RequestDefaultAdapterState extends State<RequestDefaultAdapter> {
                       child: Html(
                           data: widget.subject[provider.count - 1].correctAnswer
                               .toUpperCase()),
-                    )
+                    ),
+                    SizedBox(
+                        width: MediaQuery.of(context).size.width, child: Html(data: widget.subject[provider.count - 1].description))
                   ],
                 ),
               )
@@ -112,9 +110,11 @@ class _RequestDefaultAdapterState extends State<RequestDefaultAdapter> {
   }
 
   Widget _myRadioButton({String title, String value, double width, double height, int index, int indexQuestion}) {
-    return GestureDetector(
-        child: Card(
-          color: (index == widget.subject[indexQuestion].index) ? colorFromHex("#E8F2FD") : Colors.white,
+    return  Card(
+          color: !Provider.of<CountModel>(context).isCheck ?
+          ((index == widget.subject[indexQuestion].index) ? colorFromHex("#E8F2FD") : Colors.white) :
+          ((convertCorrect(widget.subject[indexQuestion].correctAnswer) == index) ? colorFromHex("#E8F2FD") :
+          (widget.subject[indexQuestion].index == index ? colorFromHex("#ff738e"): Colors.white)),
           child: Padding(
             child: Row(
               children: <Widget>[
@@ -144,16 +144,7 @@ class _RequestDefaultAdapterState extends State<RequestDefaultAdapter> {
           shape: RoundedRectangleBorder(
               side: BorderSide(color: colorFromHex("#E8F2FD"), width: 1),
               borderRadius: BorderRadius.circular(10)),
-        ),
-        onTap: () {
-          setState(() {
-            for (int i = 0; i < _list.length; i++) {
-              _list[i] = false;
-            }
-            _list[index] = true;
-            widget.subject[indexQuestion].index = index;
-          });
-        });
+        );
   }
 //  widget.subject.cover_url
 }

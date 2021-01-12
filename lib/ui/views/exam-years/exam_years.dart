@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterappdogandcat/core/model/example.dart';
+import 'package:flutterappdogandcat/core/viewmodel/example_model.dart';
+import 'package:flutterappdogandcat/ui/shared/argument_pass.dart';
 import 'package:flutterappdogandcat/ui/views/exam-years/list_code_exam.dart';
 
 class ExamYears extends StatefulWidget {
@@ -9,12 +13,18 @@ class ExamYears extends StatefulWidget {
 }
 
 class _ExamYearsState extends State<ExamYears> {
+
   PageController pageController =
       PageController(initialPage: 2048, keepPage: true, viewportFraction: 0.8);
+  ExampleModel model = ExampleModel.instance;
 
   @override
   Widget build(BuildContext context) {
+
+    String slug = ModalRoute.of(context).settings.arguments;
+    model.getListExample(slug);
     final width = MediaQuery.of(context).size.width / 360;
+
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -24,20 +34,32 @@ class _ExamYearsState extends State<ExamYears> {
               }),
           title: Text("Đề thi các năm"),
         ),
-        body: Container(
-          child: PageView.builder(
-            itemBuilder: (context, index) {
-              return itemPage(index,width);
-            },
-            itemCount: 4,
-            scrollDirection: Axis.horizontal,
-            controller: pageController,
-          ),
-          margin: EdgeInsets.only(bottom: 10),
+        body: StreamBuilder<List<Example>>(
+          stream: model.exampleStream,
+          builder: (context,snapshot){
+            if (snapshot.connectionState == ConnectionState.waiting){
+              return Container(child: Center(child: CupertinoActivityIndicator()));
+            }else if (snapshot.error != null){
+              return Container(child: Center(child: Text("Đã có lỗi xảy ra vui lòng thử lại!")));
+            }else{
+              return  Container(
+                child: PageView.builder(
+                  itemBuilder: (context, index) {
+                    return itemPage(index,width,slug,snapshot.data);
+                  },
+                  itemCount: 4,
+                  scrollDirection: Axis.horizontal,
+                  controller: pageController,
+                ),
+                margin: EdgeInsets.only(bottom: 10),
+              );
+            }
+          },
         ));
   }
 
-  Widget itemPage(var index,double width) => Container(
+  // ignore: non_constant_identifier_names
+  Widget itemPage(var index,double width,String slug,List<Example> data) => Container(
 
         child: GestureDetector(
           child: Stack(
@@ -81,7 +103,7 @@ class _ExamYearsState extends State<ExamYears> {
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 18)),
                                   onTap: () {
-                                    Navigator.of(context).pushNamed(ListCodeExam.routeName);
+                                    Navigator.of(context).pushNamed(ListCodeExam.routeName,arguments: PassArgumentsScreen(slug,data));
                                   },
                                 ),
                                 decoration: BoxDecoration(
@@ -117,7 +139,7 @@ class _ExamYearsState extends State<ExamYears> {
             alignment: AlignmentDirectional.topCenter,
           ),
           onTap: () {
-            Navigator.of(context).pushNamed(ListCodeExam.routeName);
+            Navigator.of(context).pushNamed(ListCodeExam.routeName,arguments: PassArgumentsScreen(slug,data));
           },
         ),
         padding: EdgeInsets.all(10),

@@ -11,9 +11,6 @@ class ExampleListView extends StatelessWidget {
 
   ExampleModel model = ExampleModel.instance;
 
-  final GlobalKey<AnimatedCircularChartState> _chartKey =
-      new GlobalKey<AnimatedCircularChartState>();
-
   @override
   Widget build(BuildContext context) {
     String slug = ModalRoute.of(context).settings.arguments;

@@ -306,17 +306,27 @@ class _TestScreenState extends State<ExampleView>
                                   },
                                   itemCount: data.length)),
                           Center(child: RaisedButton(onPressed: (){
-                            int count = 0;
-                            for (int i = 0; i < data.length; i++) {
-                              if (convertInCorrect(data[i].index) ==
-                                  data[i].correctAnswer) {
-                                count++;
+                            if (!Provider.of<CountModel>(context).isCheck){
+                              int count = 0;
+                              for (int i = 0; i < data.length; i++) {
+                                if (convertInCorrect(data[i].index) ==
+                                    data[i].correctAnswer) {
+                                  count++;
+                                }
                               }
+                              showAlertSubmit(context, count, data.length);
+                              Provider.of<CountModel>(context).complate();
+                              _controller.stop();
+                            }else {
+                              setState(() {
+
+                              });
+                              Provider.of<CountModel>(context).complate();
+                              Provider.of<SnackBarModel>(context).hintSnackBar();
+                              Provider.of<CountModel>(context, listen: false)
+                                  .filterQuestion(1);
                             }
-                            showAlertSubmit(context, count, data.length);
-                            Provider.of<CountModel>(context).complate();
-                            _controller.stop();
-                          },child: Text("Nộp bài"),),)
+                          },child: Text(Provider.of<CountModel>(context).isCheck ? "Làm lại" : "Nộp bài")))
                         ],
                       ))),
               visible: isShow));

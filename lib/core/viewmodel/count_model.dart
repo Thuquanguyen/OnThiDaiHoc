@@ -8,10 +8,8 @@ class CountModel extends ChangeNotifier {
   bool get isCheck => _isCheck;
 
   void complate(){
-    if (_isCheck == false) {
-      _isCheck = !_isCheck;
-      notifyListeners();
-    }
+    _isCheck = !_isCheck;
+    notifyListeners();
   }
 
   void increment() {

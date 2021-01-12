@@ -67,7 +67,7 @@ class _HomeViewState extends State<HomeView> {
           image: "assets/images/home/icon_dialy.png",
           title: "Địa Lý"),
       Subject(
-          slug: "giao_duc_cong_dan",
+          slug: "gdcd",
           image: "assets/images/home/icon_gdcd.png",
           title: "GDCD"),
     ];

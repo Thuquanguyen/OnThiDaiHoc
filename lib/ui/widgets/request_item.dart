@@ -4,6 +4,7 @@ import 'package:flutter_tex/flutter_tex.dart';
 import 'package:flutterappdogandcat/core/model/question.dart';
 import 'package:flutterappdogandcat/core/viewmodel/count_model.dart';
 import 'package:flutterappdogandcat/ui/shared/define.dart';
+
 // import 'package:math_tex/math_tex.dart';
 import 'package:provider/provider.dart';
 
@@ -106,16 +107,23 @@ class _RequestAdapterState extends State<Requests> {
       children: <Widget>[
         SizedBox(
             width: MediaQuery.of(context).size.width, child: buildText(result)),
-        Center(child: widget.subject[index].imageUrlQuestion.length != 0
-            ? Image.network(widget.subject[index].imageUrlQuestion[0].url)
-            : Text(""),)
+        Center(
+          child: widget.subject[index].imageUrlQuestion.length != 0
+              ? Image.network(widget.subject[index].imageUrlQuestion[0].url)
+              : Text(""),
+        )
       ],
       crossAxisAlignment: WrapCrossAlignment.center,
     );
   }
 
   Widget _myRadioButton(
-      {String title, String value, double width, double height, int index, int indexQuestion}) {
+      {String title,
+      String value,
+      double width,
+      double height,
+      int index,
+      int indexQuestion}) {
     return GestureDetector(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -129,57 +137,66 @@ class _RequestAdapterState extends State<Requests> {
                       fontWeight: FontWeight.bold, fontSize: 20 * width),
                 )),
                 decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: Provider
-                    .of<CountModel>(context)
-                    .isCheck ? (index ==
-                    convertCorrect(widget.subject[indexQuestion].correctAnswer))
-                    ? Colors.green
-                    : Colors.tealAccent : Colors.tealAccent),
+                    shape: BoxShape.circle,
+                    color: Provider.of<CountModel>(context).isCheck
+                        ? (index ==
+                                convertCorrect(widget
+                                    .subject[indexQuestion].correctAnswer))
+                            ? Colors.green
+                            : Colors.tealAccent
+                        : Colors.tealAccent),
                 width: 50 * width,
                 height: 50 * height),
             SizedBox(width: 20 * width),
             Expanded(
                 child: GestureDetector(
-                  child: SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      child: Stack(
-                        children: <Widget>[
-                          buildText(title),
-                        ],
-                      )),
-                  onTap: () {
-                    setState(() {
-                      for (int i = 0; i < _list.length; i++) {
-                        _list[i] = false;
-                      }
-                      _list[index] = true;
-                      widget.subject[indexQuestion].index = index;
-                    });
-                  },
-                )),
+              child: SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: Stack(
+                    children: <Widget>[
+                      buildText(title),
+                    ],
+                  )),
+              onTap: () {
+                if (!Provider.of<CountModel>(context).isCheck) {
+                  setState(() {
+                    for (int i = 0; i < _list.length; i++) {
+                      _list[i] = false;
+                    }
+                    _list[index] = true;
+                    widget.subject[indexQuestion].index = index;
+                  });
+                }
+              },
+            )),
             (index == widget.subject[indexQuestion].index)
                 ? Icon(Icons.check_circle, color: Colors.green)
                 : Text("")
           ],
         ),
         onTap: () {
-          setState(() {
-            for (int i = 0; i < _list.length; i++) {
-              _list[i] = false;
-            }
-            _list[index] = true;
-            widget.subject[indexQuestion].index = index;
-          });
+          if (!Provider.of<CountModel>(context).isCheck) {
+            setState(() {
+              for (int i = 0; i < _list.length; i++) {
+                _list[i] = false;
+              }
+              _list[index] = true;
+              widget.subject[indexQuestion].index = index;
+            });
+          }
         });
   }
+
 //  widget.subject.cover_url
   Widget buildText(String text) {
     return SizedBox(
-      child: TeXView(child: TeXViewDocument(r"""When \(a \ne 0 \), there are two solutions to \(ax^2 + bx + c = 0\) and they are $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$""",
-          style: TeXViewStyle.fromCSS(
-              'padding: 15px; color: white; background: green')),),
+      child: TeXView(
+        child: TeXViewDocument(
+            r"""When \(a \ne 0 \), there are two solutions to \(ax^2 + bx + c = 0\) and they are $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$""",
+            style: TeXViewStyle.fromCSS(
+                'padding: 15px; color: white; background: green')),
+      ),
       height: 55,
     );
   }
 }
-  
