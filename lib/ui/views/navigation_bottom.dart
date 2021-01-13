@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterappdogandcat/ui/views/admod/admod_view.dart';
-import 'package:flutterappdogandcat/ui/views/favorite/favorite_view.dart';
 import 'package:flutterappdogandcat/ui/views/home/home_view.dart';
+import 'admissions/admissions_view.dart';
 import 'entertainment/entertainment_view.dart';
 
 class NavigationBottomBar extends StatefulWidget {
@@ -16,7 +16,7 @@ class _NavigationBottomBarState extends State<NavigationBottomBar> {
   final List<Widget> _pages = <Widget>[
     HomeView(),
     EntertaimentView(),
-    FavoriteView()
+    AdmissionsView()
 //    AdmodView()
   ];
 

@@ -141,7 +141,7 @@ class _TestScreenState extends State<ExampleView>
                                       child: PomodoroTimer(
                                           timeRemainingInSeconds: new IntTween(
                                         begin: _controller.duration.inSeconds,
-                                        end: 0,
+                                        end: 0
                                       ).animate(_controller)),
                                       padding: EdgeInsets.all(5)))),
                           margin: EdgeInsets.only(

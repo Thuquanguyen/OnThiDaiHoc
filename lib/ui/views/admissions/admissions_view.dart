@@ -3,20 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:flutterappdogandcat/core/model/entertaiment.dart';
 import 'package:flutterappdogandcat/core/viewmodel/tuyensinh_model.dart';
 import 'package:flutterappdogandcat/ui/shared/define.dart';
-import 'package:flutterappdogandcat/ui/views/favorite/tuyensinh_ads.dart';
 import 'package:flutterappdogandcat/ui/views/subject/remember/remember_view.dart';
 
 import 'items/item_admissions.dart';
 
-class FavoriteView extends StatefulWidget {
+class AdmissionsView extends StatefulWidget {
   static const routeName = "/favorite";
 
   @override
-  _FavoriteViewState createState() => _FavoriteViewState();
+  _AdmissionsViewState createState() => _AdmissionsViewState();
 }
 
-class _FavoriteViewState extends State<FavoriteView> {
+class _AdmissionsViewState extends State<AdmissionsView> with SingleTickerProviderStateMixin{
+
+  static final GlobalKey<ScaffoldState> scaffoldKey =
+  new GlobalKey<ScaffoldState>();
   final controller = TextEditingController();
+  bool _isSearching = false;
   TuyenSinhModel model = TuyenSinhModel.instance;
   List<Entertaiment> list = [];
   var items = List<Entertaiment>();
@@ -121,6 +124,7 @@ class _FavoriteViewState extends State<FavoriteView> {
                             child: ItemAdmission()),
                         itemCount: 20,
                       ))
+                      //
                       // Expanded(
                       //     child: ListView.builder(
                       //   shrinkWrap: true,

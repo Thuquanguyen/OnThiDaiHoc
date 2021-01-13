@@ -78,18 +78,23 @@ class _SplatScreenState extends State<SplatView> {
   Future intentScreen(int count) {
     return new Future.delayed(const Duration(seconds: 3), () {
       if (count == 1) {
-        Navigator.of(context).popAndPushNamed(NavigationBottomBar.routeName);
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => NavigationBottomBar()),
+                (Route<dynamic> route) => false);
       } else {
-        Navigator.of(context).popAndPushNamed(IntroView.routeName);
+        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => IntroView()),
+                (Route<dynamic> route) => false);
       }
       checkupdateModel.getVersionApp().then((value) {
         getVersion().then((version) {
           if (value.results.version == version) {
             if (count == 1) {
               Navigator.of(context)
-                  .popAndPushNamed(NavigationBottomBar.routeName);
+                  .pushAndRemoveUntil(MaterialPageRoute(builder: (context) => NavigationBottomBar()),
+          (Route<dynamic> route) => false);
             } else {
-              Navigator.of(context).popAndPushNamed(IntroView.routeName);
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => IntroView()),
+          (Route<dynamic> route) => false);
             }
           } else {
             if (!checkDialog) {

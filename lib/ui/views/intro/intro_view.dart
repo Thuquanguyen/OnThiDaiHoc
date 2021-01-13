@@ -60,7 +60,8 @@ class IntroScreenState extends State<IntroScreen> {
 
   void onDonePress() {
     _checkIntro();
-    Navigator.of(context).popAndPushNamed(NavigationBottomBar.routeName);
+    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => NavigationBottomBar()),
+    (Route<dynamic> route) => false);
   }
 
   _checkIntro() async {

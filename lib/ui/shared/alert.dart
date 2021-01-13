@@ -33,15 +33,19 @@ showAlertSubmit(BuildContext context, int count,int lenght) => showDialog(
     child: AlertDialog(
       title: Column(
         children: <Widget>[
+          Image.asset("assets/images/clock.png",fit: BoxFit.cover,),
+          SizedBox(
+            height: 5,
+          ),
           Text(
-            "Số điểm của bạn là",
+            "Kết quả",
             textAlign: TextAlign.center,
           ),
           SizedBox(
             height: 5,
           ),
           Text(
-            "$count/$lenght câu",
+            "$count/$lenght câu đúng",
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.red),
           )

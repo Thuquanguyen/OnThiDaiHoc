@@ -28,7 +28,7 @@ class _EntertaimentViewState extends State<EntertaimentView> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CupertinoActivityIndicator());
           } else if (snapshot.error != null) {
-            return Center(child: Text("Error"));
+            return Center(child: Text("Đã có lỗi xảy ra vui lòng thử lại!"));
           }
           return ListView.builder(
             itemBuilder: (context, index) =>
