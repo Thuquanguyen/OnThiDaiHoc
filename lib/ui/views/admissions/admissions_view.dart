@@ -79,76 +79,7 @@ class _AdmissionsViewState extends State<AdmissionsView> with SingleTickerProvid
                   // } else if (snapshot.error != null) {
                   //   return Center(child: Text("Error"));
                   // }
-                  return Column(
-                    children: [
-                      Container(
-                          child: Container(
-                            child: Center(
-                              child: ListTile(
-                                  title: TextField(
-                                    onChanged: (value) {
-                                      filterSearchResults(value);
-                                    },
-                                    controller: controller,
-                                    decoration: InputDecoration(
-                                        hintText: "Đại học Bách Khoa Hà Nội",
-                                        border: InputBorder.none,
-                                        suffixIcon: IconButton(
-                                            icon: Icon(Icons.cancel,
-                                                color: Colors.black26),
-                                            onPressed: () {
-                                              controller.text = "";
-                                            })),
-                                  ),
-                                  leading: Icon(Icons.search)),
-                            ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(
-                                    Radius.circular(10 * width)),
-                                border: Border.all(
-                                  color: colorFromHex("9B9B9B"),
-                                ),
-                                color: Colors.white),
-                          ),
-                          height: 60 * height,
-                          color: Colors.white,
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10 * width, horizontal: 10 * height)),
-                      SizedBox(height: 5 * height),
-                      Expanded(
-                          child: ListView.builder(
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) => Container(
-                            margin: EdgeInsets.symmetric(
-                                vertical: 5 * width, horizontal: 5 * width),
-                            child: ItemAdmission()),
-                        itemCount: 20,
-                      ))
-                      //
-                      // Expanded(
-                      //     child: ListView.builder(
-                      //   shrinkWrap: true,
-                      //   itemBuilder: (context, index) => Container(
-                      //       margin: EdgeInsets.symmetric(
-                      //           vertical: 5, horizontal: 5),
-                      //       child: GestureDetector(
-                      //         child: Card(
-                      //             child: ListTile(
-                      //           leading: Icon(Icons.library_books),
-                      //           title: Text(snapshot.data[index].title,
-                      //               maxLines: 2,
-                      //               overflow: TextOverflow.ellipsis),
-                      //         )),
-                      //         onTap: () {
-                      //           Navigator.pushNamed(
-                      //               context, TuyenSinhView.routeName,
-                      //               arguments: snapshot.data[index]);
-                      //         },
-                      //       )),
-                      //   itemCount: snapshot.data.length,
-                      // ))
-                    ],
-                  );
+                  return Center(child: Text("Chưa có dữ liệu!"));
                 })));
   }
 }
