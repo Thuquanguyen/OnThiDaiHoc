@@ -100,7 +100,7 @@ class _SplatScreenState extends State<SplatView> {
             if (!checkDialog) {
               showAlert(context, () {
                 StoreRedirect.redirect(
-                    androidAppId: "com.luyenthidaihoc.daihoctrongtoi",
+                    androidAppId: "com.flutter.appdogandcat",
                     iOSAppId: "585027354");
                 print("update");
               }, "Hiện đã có phiên bản mới của ứng dụng!", "Cập nhật");

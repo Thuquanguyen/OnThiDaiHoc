@@ -1,31 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="01068d56-65af-48f5-abb8-7c69167c9ebf" name="Default Changelist" comment="">
+    <list default="true" id="017a3c2a-b0c8-421f-bccd-080a886f4b3b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/release/app.aab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/flutter/appdogandcat/AlarmUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/flutter/appdogandcat/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/flutter/appdogandcat/MyReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/../.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/-1098981422/android.connectivity.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/-1098981422/android.connectivity.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/-1161506465/android.sqflite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/-1161506465/android.sqflite.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/-1250953394/android.store_redirect.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/-1250953394/android.store_redirect.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/-1658674262/android.flutter_plugin_pdf_viewer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/-1658674262/android.flutter_plugin_pdf_viewer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/-193923469/android.path_provider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/-193923469/android.path_provider.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/-971916090/android.package_info.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/-971916090/android.package_info.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/1141866587/android.webview_flutter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/1141866587/android.webview_flutter.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/1194953792/android.flutter_webview_plugin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/1194953792/android.flutter_webview_plugin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/1892158811/android.firebase_core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/1892158811/android.firebase_core.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/1994358399/android.firebase_admob.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/1994358399/android.firebase_admob.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/437352582/android.shared_preferences.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/437352582/android.shared_preferences.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/release/app-release.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/release/output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/debug/gen/com/luyenthidaihoc/daihoctrongtoi/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/debug/gen/com/luyenthidaihoc/appdogandcat/BuildConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/debug/gen/com/luyenthidaihoc/daihoctrongtoi/Manifest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/debug/gen/com/luyenthidaihoc/appdogandcat/Manifest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/debug/gen/com/luyenthidaihoc/daihoctrongtoi/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/debug/gen/com/luyenthidaihoc/appdogandcat/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/luyenthidaihoc/daihoctrongtoi/AlarmUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/luyenthidaihoc/daihoctrongtoi/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/luyenthidaihoc/daihoctrongtoi/MyReceiver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/profile/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/profile/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/profile/gen/com/luyenthidaihoc/daihoctrongtoi/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/profile/gen/com/luyenthidaihoc/appdogandcat/BuildConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/profile/gen/com/luyenthidaihoc/daihoctrongtoi/Manifest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/profile/gen/com/luyenthidaihoc/appdogandcat/Manifest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/profile/gen/com/luyenthidaihoc/daihoctrongtoi/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/profile/gen/com/luyenthidaihoc/appdogandcat/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/ui/views/admissions/admissions_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ui/views/admissions/admissions_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/ui/views/splat_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/ui/views/splat_view.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[420049b4d0af5415]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
   <component name="GenerateSignedApkSettings">
-    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/../../Key" />
+    <option name="EXPORT_PRIVATE_KEY" value="false" />
+    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/../../KeyOnThiDaiHoc/Untitled" />
     <option name="KEY_ALIAS" value="key0" />
-    <option name="BUILD_TARGET_KEY" value="apk" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1nJMjDDEoRGWe2nvgahW5tfo980" />
+  <component name="ProjectId" id="1nJQweR2ASy6e6R7kaHW5ySIZbI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="abbreviatePackageNames" value="true" />
@@ -38,16 +74,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ApkExportedModule" value="android.app" />
+    <property name="BundleExportedModule" value="android.app" />
     <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/app" />
     <property name="ExportApk.BuildVariants" value="release" />
-    <property name="ExportApk.SignV2" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Flutter.main.dart">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -112,17 +148,21 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity-0.4.6/example/lib/main.dart" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="01068d56-65af-48f5-abb8-7c69167c9ebf" name="Default Changelist" comment="" />
-      <created>1611103872724</created>
+      <changelist id="017a3c2a-b0c8-421f-bccd-080a886f4b3b" name="Default Changelist" comment="" />
+      <created>1611105953437</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1611103872724</updated>
+      <updated>1611105953437</updated>
     </task>
     <servers />
   </component>

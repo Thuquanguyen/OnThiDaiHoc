@@ -64,12 +64,13 @@ class _AdmissionsViewState extends State<AdmissionsView> with SingleTickerProvid
     final height = MediaQuery.of(context).size.height / 640;
 
     return SafeArea(
+      top: false,
+        bottom: false,
         child: Scaffold(
           appBar: AppBar(
             title: Text("Tra cứu tuyển sinh",style: TextStyle(color: Colors.black, fontWeight: FontWeight.w800),),
             centerTitle: true,
             elevation: 0,
-            backgroundColor: Colors.white,
           ),
             body: StreamBuilder<List<Entertaiment>>(
                 stream: model.entertaimentStream,
