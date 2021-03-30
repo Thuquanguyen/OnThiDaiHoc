@@ -7,7 +7,7 @@ class QuestionInherited extends InheritedWidget {
       : super(child: child);
 
   static QuestionInherited of(BuildContext context) {
-    return context.inheritFromWidgetOfExactType(QuestionInherited);
+    return context.dependOnInheritedWidgetOfExactType<QuestionInherited>();
   }
 
   @override

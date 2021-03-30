@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 import 'package:flutterappdogandcat/core/model/example.dart';
 import 'package:flutterappdogandcat/core/viewmodel/example_model.dart';
 import 'package:flutterappdogandcat/ui/views/test/example_view.dart';

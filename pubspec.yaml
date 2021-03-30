@@ -32,7 +32,6 @@ dependencies:
   provider:
   path_provider:
   flutter_html:
-  flutter_circular_chart:
   intro_slider:
   shared_preferences:
   flutter_webview_plugin:

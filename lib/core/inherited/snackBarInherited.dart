@@ -7,7 +7,7 @@ class SnackBarInherited extends InheritedWidget {
       : super(child: child);
 
   static SnackBarInherited of(BuildContext context) {
-    return context.inheritFromWidgetOfExactType(SnackBarInherited);
+    return context.dependOnInheritedWidgetOfExactType<SnackBarInherited>();
   }
 
   @override
