@@ -24,6 +24,18 @@
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity/example/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity/example/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity_for_web/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity_for_web/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity_for_web/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity_for_web/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity_for_web/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity_for_web/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity_macos/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity_macos/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity_macos/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity_macos/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity_macos/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/connectivity_macos/example/build" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/firebase_admob/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/firebase_admob/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/firebase_admob/build" />
@@ -130,7 +142,7 @@
     <orderEntry type="jdk" jdkName="Android API 30 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />
-    <orderEntry type="library" name="Dart Packages" level="project" />
     <orderEntry type="library" name="Flutter Plugins" level="project" />
+    <orderEntry type="library" name="Dart Packages" level="project" />
   </component>
 </module>

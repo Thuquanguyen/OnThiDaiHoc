@@ -20,18 +20,17 @@ class EntertaimentModel extends BlocBase {
 
   final Api subjectProvider = Api();
 
-  Future<List<Entertaiment>> getListEntertaiment(
-      String slug, String type) async {
+  Future<List<Entertaiment>> getListEntertaiment() async {
     List<Entertaiment> subject = await subjectProvider.fetchListEntertaiment();
-    subject = subject.where((element) => element.type == slug).toList();
-    if (slug != "giai_tri") {
-      subject = subject.where((element) => element.title == type).toList();
-    }
-    if (subject == null) {
-      _streamController.sink.addError("error");
-    } else {
-      _streamController.sink.add(subject);
-    }
+    // subject = subject.where((element) => element.type == slug).toList();
+    // if (slug != "giai_tri") {
+    //   subject = subject.where((element) => element.title == type).toList();
+    // }
+    // if (subject == null) {
+    //   _streamController.sink.addError("error");
+    // } else {
+    //   _streamController.sink.add(subject);
+    // }
     return subject;
   }
 

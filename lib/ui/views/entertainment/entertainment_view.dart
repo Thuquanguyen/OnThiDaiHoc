@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterappdogandcat/core/model/entertaiment.dart';
 import 'package:flutterappdogandcat/core/viewmodel/entertaiment_model.dart';
-import 'package:flutterappdogandcat/ui/views/entertainment/details_entertaiment_view.dart';
 
 class EntertaimentView extends StatefulWidget {
   static const routeName = "/entertaiment";
@@ -16,7 +15,7 @@ class _EntertaimentViewState extends State<EntertaimentView> {
 
   @override
   void initState() {
-    model.getListEntertaiment("giai_tri", "");
+    // model.getListEntertaiment("giai_tri", "");
     super.initState();
   }
 

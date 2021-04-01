@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappdogandcat/core/viewmodel/example_model.dart';
 import 'package:flutterappdogandcat/ui/shared/argument_pass.dart';
 import 'package:flutterappdogandcat/ui/shared/define.dart';
-import 'package:flutterappdogandcat/ui/views/subject/remember/web_example_view.dart';
+import 'package:flutterappdogandcat/ui/views/subject/remember/remember_view.dart';
 import 'package:flutterappdogandcat/ui/views/test/example_view.dart';
 
 class StartExamWidget extends StatelessWidget {
@@ -98,7 +97,7 @@ class StartExamWidget extends StatelessWidget {
                             example.slug == VAT_LY ||
                             example.slug == HOA_HOC ||
                             example.slug == SINH_HOC)
-                        ? WebExampleView.routeName
+                        ? RememberView.routeName
                         : ExampleView.routeName,
                     arguments:
                         PassArgumentsScreen(example.slug, example.content));

@@ -60,7 +60,7 @@ class _TuyenSinhAdsState extends State<TuyenSinhAds> {
     Entertaiment entertaiment = ModalRoute.of(context).settings.arguments;
 
     return WebviewScaffold(
-        url: entertaiment.url.trim(),
+        url: "https://hocvientaichinh.com.vn/thong-tin-tuyen-sinh-hoc-vien-tai-chinh-2021.html",
         appBar:
             AppBar(title: Text(entertaiment.title.trim()), centerTitle: true),
         withZoom: true,

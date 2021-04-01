@@ -55,12 +55,12 @@ class _RememberScreenState extends State<RememberView> {
 
   @override
   Widget build(BuildContext context) {
-    Entertaiment entertaiment = ModalRoute.of(context).settings.arguments;
+    // Entertaiment entertaiment = ModalRoute.of(context).settings.arguments;
 
     return WebviewScaffold(
-        url: entertaiment.url.trim(),
+        url: "https://drive.google.com/file/d/1zN4Zeq4vDUTTxEm9GW94vT7ac5Qi7WtZ/view?usp=sharing",
         appBar:
-            AppBar(title: Text(entertaiment.content.trim()), centerTitle: true),
+        AppBar(title: Text("entertaiment.content.trim()"), centerTitle: true),
         withZoom: false,
         withLocalStorage: true,
         initialChild: Container(

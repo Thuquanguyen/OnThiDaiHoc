@@ -6,8 +6,6 @@ import 'package:flutterappdogandcat/ui/views/exam-years/exam_years.dart';
 import 'package:flutterappdogandcat/ui/views/exam-years/list_code_exam.dart';
 import 'package:flutterappdogandcat/ui/views/splat_view.dart';
 import 'package:flutterappdogandcat/ui/views/start-exam/start_exam_widget.dart';
-import 'package:flutterappdogandcat/ui/views/subject/remember/web_example_view.dart';
-import 'package:flutterappdogandcat/ui/views/subject/remember/theory_view.dart';
 import 'package:flutterappdogandcat/ui/views/test/example_list_view.dart';
 import 'core/bloc/bloc_provider.dart';
 import 'core/viewmodel/question_model.dart';
@@ -38,9 +36,7 @@ class DACApp extends StatelessWidget {
             RememberView.routeName: (_) => RememberView(),
             CreateTaskView.routeName: (_) => CreateTaskView(),
             ExampleListView.routeName: (_) => ExampleListView(),
-            TheoryView.routeName: (_) => TheoryView(),
             ExamYears.routeName: (_) => ExamYears(),
-            WebExampleView.routeName: (_) => WebExampleView(),
             ListCodeExam.routeName : (_) => ListCodeExam(),
             AdmissionsView.routeName: (_) => AdmissionsView(),
             AdmodView.routeName: (_) => AdmodView(),

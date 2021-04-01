@@ -26,28 +26,22 @@ class Entertaiment {
   String id;
   String content;
   String title;
-  String type;
-  String url;
 
-  Entertaiment({this.id, this.content, this.title, this.type, this.url});
+  Entertaiment({this.id, this.content, this.title});
 
   factory Entertaiment.fromJson(Map<String, dynamic> json) {
     return Entertaiment(
-      id: json['_id'],
+      id: json['id'],
       content: json['content'],
       title: json['title'],
-      type: json['type'],
-      url: json['url'],
     );
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.id;
+    data['id'] = this.id;
     data['content'] = this.content;
     data['title'] = this.title;
-    data['type'] = this.type;
-    data['url'] = this.url;
     return data;
   }
 }

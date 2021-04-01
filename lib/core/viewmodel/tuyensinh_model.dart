@@ -23,12 +23,12 @@ class TuyenSinhModel extends BlocBase {
   Future<List<Entertaiment>> getListEntertaiment(
       String slug, String type) async {
     List<Entertaiment> subject = await subjectProvider.fetchListEntertaiment();
-    subject = subject.where((element) => element.type == slug).toList();
-    if (subject == null) {
-      _streamController.sink.addError("error");
-    } else {
-      _streamController.sink.add(subject);
-    }
+    // subject = subject.where((element) => element.type == slug).toList();
+    // if (subject == null) {
+    //   _streamController.sink.addError("error");
+    // } else {
+    //   _streamController.sink.add(subject);
+    // }
     return subject;
   }
 
